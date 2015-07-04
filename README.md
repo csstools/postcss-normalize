@@ -1,7 +1,7 @@
 # postcss-normalize 
 [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
 
-[PostCSS] plugin that that automatically applies normalize.css
+[PostCSS] plugin that that automatically applies the latest normalize.css
 
 ```css
 .foo {
