@@ -1,7 +1,7 @@
-# postcss-normalize 
+# PostCSS Normalize
 [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
 
-[PostCSS] plugin that that automatically applies the latest normalize.css
+[PostCSS][PostCSS] plugin that that automatically applies the latest normalize.css.
 
 ```css
 .foo {
@@ -26,7 +26,7 @@
 postcss([ require('postcss-normalize') ])
 ```
 
-See [PostCSS] docs for examples for your environment.
+See [PostCSS][PostCSS] docs for examples for your environment.
 
 --
 
@@ -41,4 +41,3 @@ MIT © [Sean King](https://twitter.com/seaneking)
 [daviddm-image]: https://david-dm.org/seaneking/postcss-normalize.svg?theme=shields.io
 [daviddm-url]: https://david-dm.org/seaneking/postcss-normalize
 [PostCSS]: https://github.com/postcss/postcss
-
