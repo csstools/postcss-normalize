@@ -2,7 +2,6 @@
 
 var postcss = require('postcss'),
     fs = require('fs'),
-    path = require('path'),
     CleanCSS = require('clean-css');
 
 module.exports = postcss.plugin('postcss-normalize', function () {
