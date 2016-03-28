@@ -28,7 +28,7 @@
   "dependencies": {
     "clean-css": "^3.3.9",
     "normalize.css": "^4.0.0",
-    "postcss": "^4.1.9"
+    "postcss": "^5.0.0"
   },
   "devDependencies": {
     "gulp-eslint": "^0.12.0",
