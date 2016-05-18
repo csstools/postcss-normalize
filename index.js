@@ -8,8 +8,12 @@ module.exports = postcss.plugin('postcss-normalize', function () {
     var normalizePath = require.resolve('normalize.css/normalize.css');
     return new Promise(function(resolve, reject) {
       fs.readFile(normalizePath, 'utf8', function(err, data) {
-        err ? reject(err) : resolve(data);
-      })
+        if (err) {
+          reject(err);
+        } else {
+          resolve(data);
+        }
+      });
     }).then(function(data) {
       return postcss.parse(data, { from: normalizePath });
     }).then(function(normRoot) {
