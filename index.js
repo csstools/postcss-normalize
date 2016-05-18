@@ -1,8 +1,7 @@
 'use strict';
 
 var postcss = require('postcss'),
-    fs = require('fs'),
-    CleanCSS = require('clean-css');
+    fs = require('fs');
 
 module.exports = postcss.plugin('postcss-normalize', function () {
   return function(css) {
@@ -12,9 +11,9 @@ module.exports = postcss.plugin('postcss-normalize', function () {
         err ? reject(err) : resolve(data);
       })
     }).then(function(data) {
-      return new CleanCSS().minify(data).styles;
-    }).then(function(data) {
-      css.prepend(data);
+      return postcss.parse(data, { from: normalizePath });
+    }).then(function(normRoot) {
+      css.prepend(normRoot);
     });
   };
 });
