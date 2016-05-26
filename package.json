@@ -26,7 +26,6 @@
   },
   "homepage": "https://github.com/seaneking/postcss-normalize",
   "dependencies": {
-    "clean-css": "^3.3.9",
     "normalize.css": "^4.0.0",
     "postcss": "^5.0.0"
   },
