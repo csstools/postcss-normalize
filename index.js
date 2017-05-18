@@ -5,12 +5,12 @@ const normalizeJSON = require('./lib/normalize.json');
 const postcss       = require('postcss');
 
 // plugin
-module.exports = postcss.plugin('postcss-normalize', ({ browsers } = {}) => {
+module.exports = postcss.plugin('postcss-normalize', (opts) => {
 	const normalizeAST = jsonToAst(normalizeJSON);
 
 	return (root) => {
 		// client browser list
-		const clientBrowserList = browserslist(browsers, {
+		const clientBrowserList = browserslist(opts && opts.browsers, {
 			path: root.source && root.source.input && root.source.input.file
 		});
 
