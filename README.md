@@ -9,6 +9,43 @@
 [PostCSS Normalize] lets you automatically include the parts of [normalize.css]
 you need, based upon your project’s [browserlist].
 
+```css
+/* { "browserlist": ["last 3 versions"] } */
+
+/**
+ * Add the correct display in IE 9-.
+ */
+
+article,
+aside,
+footer,
+header,
+nav,
+section {
+  display: block;
+}
+
+/**
+ * Remove the border on images inside links in IE 10-.
+ */
+
+img {
+  border-style: none;
+}
+```
+
+```css
+/* { "browserlist": ["last 2 versions"] } */
+
+/**
+ * Remove the border on images inside links in IE 10-.
+ */
+
+img {
+  border-style: none;
+}
+```
+
 ## Usage
 
 Add [PostCSS Normalize] to your build tool:
