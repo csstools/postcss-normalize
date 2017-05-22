@@ -34,8 +34,13 @@ module.exports = postcss.plugin('postcss-normalize', (opts) => {
 					}
 				);
 
+				// restore source mapping
+				rule.source.input = normalizeJSON.source.input;
+
 				return rule.nodes.length;
 			}
+		).map(
+			(rule) => rule.clone()
 		);
 
 		// prepend required normalize rules
