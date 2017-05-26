@@ -1,4 +1,4 @@
-/*! normalize.css v6.0.0 | MIT License | github.com/jonathantneal/normalize.css */
+/*! normalize.css v7.0.0 | MIT License | github.com/necolas/normalize.css */
 
 /* Document
    ========================================================================== */
@@ -17,6 +17,14 @@ html {
 
 /* Sections
    ========================================================================== */
+
+/**
+ * Remove the margin in all browsers (opinionated).
+ */
+
+body {
+  margin: 0;
+}
 
 /**
  * Add the correct display in IE 9-.
@@ -46,18 +54,12 @@ h1 {
 
 /**
  * Add the correct display in IE 9-.
+ * 1. Add the correct display in IE.
  */
 
 figcaption,
-figure {
-  display: block;
-}
-
-/**
- * Add the correct display in IE.
- */
-
-main {
+figure,
+main { /* 1 */
   display: block;
 }
 
@@ -231,7 +233,8 @@ svg:not(:root) {
    ========================================================================== */
 
 /**
- * Remove the margin in Firefox and Safari.
+ * 1. Change the font styles in all browsers (opinionated).
+ * 2. Remove the margin in Firefox and Safari.
  */
 
 button,
@@ -239,7 +242,10 @@ input,
 optgroup,
 select,
 textarea {
-  margin: 0;
+  font-family: sans-serif; /* 1 */
+  font-size: 100%; /* 1 */
+  line-height: 1.15; /* 1 */
+  margin: 0; /* 2 */
 }
 
 /**
@@ -263,23 +269,16 @@ select { /* 1 */
 }
 
 /**
- * Correct the inability to style clickable types in iOS and Safari.
+ * 1. Prevent a WebKit bug where (2) destroys native `audio` and `video`
+ *    controls in Android 4.
+ * 2. Correct the inability to style clickable types in iOS and Safari.
  */
 
 button,
-[type="button"],
+html [type="button"], /* 1 */
 [type="reset"],
 [type="submit"] {
-  -webkit-appearance: button;
-}
-
-/**
- * Prevent a WebKit bug where (2) destroys native `audio` and `video` controls
- * in Android 4.
- */
-
-html [type="button"] {
-  -webkit-appearance: button;
+  -webkit-appearance: button; /* 2 */
 }
 
 /**
@@ -400,17 +399,11 @@ textarea {
    ========================================================================== */
 
 /*
- * Add the correct display in Edge, IE, and Firefox.
- */
-
-details {
-  display: block;
-}
-
-/*
  * Add the correct display in IE 9-.
+ * 1. Add the correct display in Edge, IE, and Firefox.
  */
 
+details, /* 1 */
 menu {
   display: block;
 }
