@@ -2,8 +2,7 @@
 
 [![NPM Version][npm-img]][npm-url]
 [![Build Status][cli-img]][cli-url]
-[![Licensing][lic-img]][lic-url]
-[![Changelog][log-img]][log-url]
+[![Windows Build Status][win-img]][win-url]
 [![Gitter Chat][git-img]][git-url]
 
 [PostCSS Normalize] lets you automatically include the parts of [normalize.css]
@@ -45,6 +44,16 @@ img {
   border-style: none;
 }
 ```
+
+[PostCSS Normalize] will put itself at the beginning of your CSS file. You
+may also dictate where it should be included:
+
+```css
+@import "postcss-normalize";
+```
+
+This technique is compatible with [PostCSS Import] and
+[PostCSS Partial Import], regardless if they run first.
 
 ## Usage
 
@@ -141,10 +150,8 @@ grunt.initConfig({
 [npm-img]: https://img.shields.io/npm/v/postcss-normalize.svg
 [cli-url]: https://travis-ci.org/jonathantneal/postcss-normalize
 [cli-img]: https://img.shields.io/travis/jonathantneal/postcss-normalize.svg
-[lic-url]: LICENSE.md
-[lic-img]: https://img.shields.io/npm/l/postcss-normalize.svg
-[log-url]: CHANGELOG.md
-[log-img]: https://img.shields.io/badge/changelog-md-blue.svg
+[win-url]: https://ci.appveyor.com/project/jonathantneal/postcss-normalize
+[win-img]: https://img.shields.io/appveyor/ci/jonathantneal/postcss-normalize.svg
 [git-url]: https://gitter.im/postcss/postcss
 [git-img]: https://img.shields.io/badge/chat-gitter-blue.svg
 
@@ -155,3 +162,5 @@ grunt.initConfig({
 
 [browserlist]: http://browserl.ist/
 [normalize.css]: https://github.com/jonathantneal/normalize.css
+[PostCSS Import]: https://github.com/postcss/postcss-import
+[PostCSS Partial Import]: https://github.com/jonathantneal/postcss-partial-import

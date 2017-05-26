@@ -14,6 +14,13 @@ module.exports = {
 			options: {
 				browsers: 'last 1 versions'
 			}
+		},
+		'insertion': {
+			message: 'supports insertion usage'
+		},
+		'insertion:w-quotes': {
+			message: 'supports insertion with quotes usage',
+			expect: 'insertion.expect.css'
 		}
 	}
 };
