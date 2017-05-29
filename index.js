@@ -33,11 +33,15 @@ module.exports = postcss.plugin('postcss-normalize', (opts) => {
 			(rule) => rule.nodes.length
 		);
 
-		// check for an @import postcss-normalize insertion point
+		// use @import postcss-normalize insertion point
 		root.walkAtRules(
-			'import',
+			'import-normalize',
 			(atrule) => {
-				if (atrule.params === 'postcss-normalize') {
+				if (appliedRules[0].parent) {
+					// remove duplicate insertions
+					atrule.remove();
+				} else {
+					// use the first insertion point
 					atrule.replaceWith(appliedRules);
 				}
 			}

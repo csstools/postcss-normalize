@@ -1,4 +1,4 @@
-/*! normalize.css v6.0.0 | MIT License | github.com/jonathantneal/normalize.css */
+/*! normalize.css v7.0.0 | MIT License | github.com/jonathantneal/normalize.css */
 
 /* Document
    ========================================================================== */
@@ -19,7 +19,7 @@ html {
    ========================================================================== */
 
 /**
- * Add the correct display in IE 9-.
+ * Add the correct display in IE 8-.
  */
 
 article,
@@ -45,7 +45,7 @@ h1 {
    ========================================================================== */
 
 /**
- * Add the correct display in IE 9-.
+ * Add the correct display in IE 8-.
  */
 
 figcaption,
@@ -54,15 +54,7 @@ figure {
 }
 
 /**
- * Add the correct display in IE.
- */
-
-main {
-  display: block;
-}
-
-/**
- * Add the correct margin in IE 8.
+ * Add the correct margin in IE 8-.
  */
 
 figure {
@@ -78,6 +70,14 @@ hr {
   box-sizing: content-box; /* 1 */
   height: 0; /* 1 */
   overflow: visible; /* 2 */
+}
+
+/**
+ * Add the correct display in IE.
+ */
+
+main {
+  display: block;
 }
 
 /**
@@ -104,8 +104,9 @@ a {
 }
 
 /**
- * 1. Remove the bottom border in Chrome 57- and Firefox 39-.
- * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
+ * 1. Remove the bottom border in Firefox 39-.
+ * 2. Add the correct text decoration in Chrome 57-, Edge, IE, Opera,
+      and Safari.
  */
 
 abbr[title] {
@@ -153,7 +154,7 @@ dfn {
 }
 
 /**
- * Add the correct background and color in IE 9-.
+ * Add the correct background and color in IE 8-.
  */
 
 mark {
@@ -167,27 +168,6 @@ mark {
 
 small {
   font-size: 80%;
-}
-
-/**
- * Prevent `sub` and `sup` elements from affecting the line height in
- * all browsers.
- */
-
-sub,
-sup {
-  font-size: 75%;
-  line-height: 0;
-  position: relative;
-  vertical-align: baseline;
-}
-
-sub {
-  bottom: -0.25em;
-}
-
-sup {
-  top: -0.5em;
 }
 
 /* Embedded content
@@ -243,23 +223,13 @@ textarea {
 }
 
 /**
- * Show the overflow in IE.
- * 1. Show the overflow in Edge.
+ * 1. Show the overflow in IE.
+ * 2. Remove the inheritance of text transform in Edge, Firefox, and IE.
  */
 
-button,
-input { /* 1 */
-  overflow: visible;
-}
-
-/**
- * Remove the inheritance of text transform in Edge, Firefox, and IE.
- * 1. Remove the inheritance of text transform in Firefox.
- */
-
-button,
-select { /* 1 */
-  text-transform: none;
+button {
+  overflow: visible; /* 1 */
+  text-transform: none; /* 2 */
 }
 
 /**
@@ -314,6 +284,14 @@ fieldset {
 }
 
 /**
+ * Show the overflow in Edge and IE.
+ */
+
+input {
+  overflow: visible;
+}
+
+/**
  * 1. Correct the text wrapping in Edge and IE.
  * 2. Correct the color inheritance from `fieldset` elements in IE.
  * 3. Remove the padding so developers are not caught out when they zero out
@@ -330,13 +308,21 @@ legend {
 }
 
 /**
- * 1. Add the correct display in IE 9-.
+ * 1. Add the correct display in Edge and IE.
  * 2. Add the correct vertical alignment in Chrome, Firefox, and Opera.
  */
 
 progress {
   display: inline-block; /* 1 */
   vertical-align: baseline; /* 2 */
+}
+
+/**
+ * Remove the inheritance of text transform in Firefox.
+ */
+
+select {
+  text-transform: none;
 }
 
 /**
@@ -400,18 +386,10 @@ textarea {
    ========================================================================== */
 
 /*
- * Add the correct display in Edge, IE, and Firefox.
+ * Add the correct display in Edge, Firefox 48-, and IE.
  */
 
 details {
-  display: block;
-}
-
-/*
- * Add the correct display in IE 9-.
- */
-
-menu {
   display: block;
 }
 

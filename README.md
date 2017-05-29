@@ -5,8 +5,10 @@
 [![Windows Build Status][win-img]][win-url]
 [![Gitter Chat][git-img]][git-url]
 
-[PostCSS Normalize] lets you automatically include the parts of [normalize.css]
-you need, based upon your project’s [browserlist].
+[PostCSS Normalize] lets you use the parts of [normalize.css] you need, based
+on your project’s [browserlist].
+
+Example:
 
 ```css
 /* { "browserlist": ["last 3 versions"] } */
@@ -15,13 +17,9 @@ you need, based upon your project’s [browserlist].
  * Add the correct display in IE 9-.
  */
 
-article,
-aside,
-footer,
-header,
-nav,
-section {
-  display: block;
+audio,
+video {
+  display: inline-block;
 }
 
 /**
@@ -45,15 +43,21 @@ img {
 }
 ```
 
-[PostCSS Normalize] will put itself at the beginning of your CSS file. You
-may also dictate where it should be included:
+[PostCSS Normalize] will put itself at the beginning of your CSS file, unless
+you dictate where it should be included:
 
 ```css
-@import "postcss-normalize";
+@import-normalize;
 ```
 
-This technique is compatible with [PostCSS Import] and
-[PostCSS Partial Import], regardless if they run first.
+Duplicate `@import-normalize` rules will be removed for your convenience. Only
+the first instance will be replaced.
+
+---
+
+[PostCSS Normalize] uses the non-opinionated version of [normalize.css].
+
+---
 
 ## Usage
 
@@ -162,5 +166,3 @@ grunt.initConfig({
 
 [browserlist]: http://browserl.ist/
 [normalize.css]: https://github.com/jonathantneal/normalize.css
-[PostCSS Import]: https://github.com/postcss/postcss-import
-[PostCSS Partial Import]: https://github.com/jonathantneal/postcss-partial-import

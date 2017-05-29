@@ -7,13 +7,13 @@ h1 {
 	font-size: 2em;
 	margin: 0.67em 0;
 }
-main {
-	display: block;
-}
 hr {
 	box-sizing: content-box;
 	height: 0;
 	overflow: visible;
+}
+main {
+	display: block;
 }
 pre {
 	font-family: monospace, monospace;
@@ -24,7 +24,6 @@ a {
 	-webkit-text-decoration-skip: objects;
 }
 abbr[title] {
-	border-bottom: none;
 	text-decoration: underline;
 	text-decoration: underline dotted;
 }
@@ -41,19 +40,6 @@ samp {
 small {
 	font-size: 80%;
 }
-sub,
-sup {
-	font-size: 75%;
-	line-height: 0;
-	position: relative;
-	vertical-align: baseline;
-}
-sub {
-	bottom: -0.25em;
-}
-sup {
-	top: -0.5em;
-}
 img {
 	border-style: none;
 }
@@ -67,12 +53,8 @@ select,
 textarea {
 	margin: 0;
 }
-button,
-input {
+button {
 	overflow: visible;
-}
-button,
-select {
 	text-transform: none;
 }
 button,
@@ -97,6 +79,9 @@ button:-moz-focusring,
 fieldset {
 	padding: 0.35em 0.75em 0.625em;
 }
+input {
+	overflow: visible;
+}
 legend {
 	box-sizing: border-box;
 	color: inherit;
@@ -106,7 +91,11 @@ legend {
 	white-space: normal;
 }
 progress {
+	display: inline-block;
 	vertical-align: baseline;
+}
+select {
+	text-transform: none;
 }
 textarea {
 	overflow: auto;

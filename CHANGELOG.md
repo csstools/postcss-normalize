@@ -1,5 +1,11 @@
 # Changes to PostCSS Normalize
 
+### 3.0.0 (May 26, 2017)
+
+- Use jonathantneal/normalize.css v7
+- Change the insertion point to `@import-normalize` to avoid confusion or
+  collision with standard import behavior
+
 ### 2.1.0 (May 26, 2017)
 
 - Support an insertion point via `@import postcss-normalize`

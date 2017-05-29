@@ -1,6 +1,6 @@
 {
   "name": "postcss-normalize",
-  "version": "2.1.0",
+  "version": "3.0.0",
   "description": "Use the parts of normalize.css you need from your browserlist",
   "author": "Jonathan Neal <jonathantneal@hotmail.com>",
   "license": "CC0-1.0",
@@ -9,7 +9,6 @@
   "bugs": "https://github.com/jonathantneal/postcss-normalize/issues",
   "main": "index.js",
   "files": [
-    "index.css",
     "index.js",
     "lib/normalize.js",
     "lib/normalize.json"
