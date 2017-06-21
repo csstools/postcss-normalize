@@ -15,14 +15,17 @@ module.exports = {
 				browsers: 'last 1 versions'
 			}
 		},
-		'insertion': {
-			message: 'supports an insertion point'
-		},
 		'insertion-after': {
 			message: 'support an insertion point (at the end of the file)'
 		},
 		'insertion-duplicate': {
 			message: 'removes duplicate insertion points'
+		},
+		'option-force-import': {
+			message: 'forces an import at the beginning of the file',
+			options: {
+				forceImport: true
+			}
 		}
 	}
 };

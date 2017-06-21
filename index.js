@@ -37,7 +37,14 @@ module.exports = postcss.plugin('postcss-normalize', (opts) => {
 		root.walkAtRules(
 			'import-normalize',
 			(atrule) => {
-				if (appliedRules[0].parent) {
+				if (opts && opts.allowDuplicates) {
+					// use any insertion point
+					atrule.replaceWith(
+						appliedRules.map(
+							(rule) => rule.clone()
+						)
+					);
+				} else if (appliedRules[0].parent) {
 					// remove duplicate insertions
 					atrule.remove();
 				} else {
@@ -47,7 +54,7 @@ module.exports = postcss.plugin('postcss-normalize', (opts) => {
 			}
 		);
 
-		if (!appliedRules[0].parent) {
+		if (opts && opts.forceImport && !appliedRules[0].parent) {
 			// prepend required normalize rules
 			root.prepend(appliedRules);
 		}
