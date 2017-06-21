@@ -8,7 +8,14 @@
 [PostCSS Normalize] lets you use the parts of [normalize.css] you need, based
 on your project’s [browserlist].
 
-Example:
+Use `@import-normalize` to determine where [normalize.css] rules will be
+included. Duplicate `@import-normalize` rules will be removed. See all the [Options] for more information.
+
+```css
+@import-normalize;
+```
+
+Results:
 
 ```css
 /* { "browserlist": ["last 3 versions"] } */
@@ -42,16 +49,6 @@ img {
   border-style: none;
 }
 ```
-
-[PostCSS Normalize] will put itself at the beginning of your CSS file, unless
-you dictate where it should be included:
-
-```css
-@import-normalize;
-```
-
-Duplicate `@import-normalize` rules will be removed for your convenience. Only
-the first instance will be replaced.
 
 ---
 
@@ -150,6 +147,41 @@ grunt.initConfig({
 });
 ```
 
+## Options
+
+### allowDuplicates
+
+Allows you to insert multiple, duplicate insertions of [normalize.css] rules.
+The default is `false`.
+
+```js
+require('postcss-normalize')({
+  allowDuplicates: true
+});
+```
+
+### browsers
+
+Allows you to override of the project’s [browserlist] for [PostCSS Normalize].
+The default is `false`.
+
+```js
+require('postcss-normalize')({
+  browsers: 'last 2 versions'
+});
+```
+
+### forceImport
+
+Allows you to force an insertion of [normalize.css] rules at the beginning of
+the CSS file if no insertion point is specified. The default is `false`.
+
+```js
+require('postcss-normalize')({
+  forceImport: true
+});
+```
+
 [npm-url]: https://www.npmjs.com/package/postcss-normalize
 [npm-img]: https://img.shields.io/npm/v/postcss-normalize.svg
 [cli-url]: https://travis-ci.org/jonathantneal/postcss-normalize
@@ -166,3 +198,4 @@ grunt.initConfig({
 
 [browserlist]: http://browserl.ist/
 [normalize.css]: https://github.com/jonathantneal/normalize.css
+[Options]: #Options
