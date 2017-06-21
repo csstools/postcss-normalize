@@ -1,5 +1,10 @@
 # Changes to PostCSS Normalize
 
+### 4.0.0 (June 21, 2017)
+
+- Require insertion point. Make old behavior an option.
+- Allow multiple insertion points.
+
 ### 3.0.0 (May 26, 2017)
 
 - Use jonathantneal/normalize.css v7
