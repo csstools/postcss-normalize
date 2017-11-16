@@ -18,7 +18,7 @@ included. Duplicate `@import-normalize` rules will be removed. See all the [Opti
 Results:
 
 ```css
-/* { "browserlist": ["last 3 versions"] } */
+/* { "browserslist": ["last 3 versions"] } */
 
 /**
  * Add the correct display in IE 9-.
