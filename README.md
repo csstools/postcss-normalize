@@ -1,25 +1,23 @@
-# PostCSS Normalize [<img src="https://postcss.github.io/postcss/logo.svg" alt="PostCSS Logo" width="90" height="90" align="right">][postcss]
+# PostCSS Normalize [<img src="https://postcss.github.io/postcss/logo.svg" alt="PostCSS" width="90" height="90" align="right">][postcss]
 
 [![NPM Version][npm-img]][npm-url]
 [![Build Status][cli-img]][cli-url]
-[![Windows Build Status][win-img]][win-url]
-[![Gitter Chat][git-img]][git-url]
+[![Support Chat][git-img]][git-url]
 
-[PostCSS Normalize] lets you use the parts of [normalize.css] you need, based
-on your project’s [browserlist].
+[PostCSS Normalize] lets you use the parts of [normalize.css] you need from
+your [browserslist].
 
-Use `@import-normalize` to determine where [normalize.css] rules will be
-included. Duplicate `@import-normalize` rules will be removed. See all the [Options] for more information.
+Use `@import-normalize` to determine where [normalize.css] rules should be
+included. Duplicate `@import-normalize` rules will be removed. See all the
+[Options] for more information.
 
 ```css
 @import-normalize;
 ```
 
-Results:
+Results when `{ "browserslist": ["last 3 versions"] }`:
 
 ```css
-/* { "browserslist": ["last 3 versions"] } */
-
 /**
  * Add the correct display in IE 9-.
  */
@@ -38,9 +36,9 @@ img {
 }
 ```
 
-```css
-/* { "browserlist": ["last 2 versions"] } */
+Results when `{ "browserslist": ["last 2 versions"] }`:
 
+```css
 /**
  * Remove the border on images inside links in IE 10-.
  */
@@ -58,13 +56,13 @@ img {
 
 ## Usage
 
-Add [PostCSS Normalize] to your build tool:
+Add [PostCSS Normalize] to your project:
 
 ```bash
 npm install postcss-normalize --save-dev
 ```
 
-Add a [browserlist] entry in your package.json:
+Add a [browserslist] entry in `package.json`:
 
 ```json
 {
@@ -72,80 +70,29 @@ Add a [browserlist] entry in your package.json:
 }
 ```
 
-#### Node
-
 Use [PostCSS Normalize] to process your CSS:
 
 ```js
-require('postcss-normalize').process(YOUR_CSS, { /* options */ });
+import postcssNormalize from 'postcss-normalize';
+
+postcssNormalize.process(YOUR_CSS /*, processOptions, pluginOptions */);
 ```
 
-#### PostCSS
-
-Add [PostCSS] to your build tool:
-
-```bash
-npm install postcss --save-dev
-```
-
-Use [PostCSS Normalize] as a plugin:
+Or use it as a [PostCSS] plugin:
 
 ```js
+import postcss from 'postcss';
+import postcssNormalize from 'postcss-normalize';
+
 postcss([
-	require('postcss-normalize')({ /* options */ })
-]).process(YOUR_CSS, /* options */);
+  postcssNormalize(/* pluginOptions */)
+]).process(YOUR_CSS /*, processOptions */);
 ```
 
-#### Gulp
+[PostCSS Normalize] runs in all Node environments, with special instructions for:
 
-Add [Gulp PostCSS] to your build tool:
-
-```bash
-npm install gulp-postcss --save-dev
-```
-
-Use [PostCSS Normalize] in your Gulpfile:
-
-```js
-var postcss = require('gulp-postcss');
-
-gulp.task('css', function () {
-	return gulp.src('./src/*.css').pipe(
-		postcss([
-			require('postcss-normalize')({ /* options */ })
-		])
-	).pipe(
-		gulp.dest('.')
-	);
-});
-```
-
-#### Grunt
-
-Add [Grunt PostCSS] to your build tool:
-
-```bash
-npm install grunt-postcss --save-dev
-```
-
-Use [PostCSS Normalize] in your Gruntfile:
-
-```js
-grunt.loadNpmTasks('grunt-postcss');
-
-grunt.initConfig({
-	postcss: {
-		options: {
-			use: [
-				require('postcss-normalize')({ /* options */ })
-			]
-		},
-		dist: {
-			src: '*.css'
-		}
-	}
-});
-```
+| [Node](INSTALL.md#node) | [Webpack](INSTALL.md#webpack) | [Create React App](INSTALL.md#create-react-app) | [Gulp](INSTALL.md#gulp) | [Grunt](INSTALL.md#grunt) |
+| --- | --- | --- | --- | --- |
 
 ## Options
 
@@ -162,7 +109,7 @@ require('postcss-normalize')({
 
 ### browsers
 
-Allows you to override of the project’s [browserlist] for [PostCSS Normalize].
+Allows you to override of the project’s [browserslist] for [PostCSS Normalize].
 The default is `false`.
 
 ```js
@@ -182,20 +129,15 @@ require('postcss-normalize')({
 });
 ```
 
-[npm-url]: https://www.npmjs.com/package/postcss-normalize
-[npm-img]: https://img.shields.io/npm/v/postcss-normalize.svg
-[cli-url]: https://travis-ci.org/jonathantneal/postcss-normalize
 [cli-img]: https://img.shields.io/travis/jonathantneal/postcss-normalize.svg
-[win-url]: https://ci.appveyor.com/project/jonathantneal/postcss-normalize
-[win-img]: https://img.shields.io/appveyor/ci/jonathantneal/postcss-normalize.svg
+[cli-url]: https://travis-ci.org/jonathantneal/postcss-normalize
+[git-img]: https://img.shields.io/badge/support-chat-blue.svg
 [git-url]: https://gitter.im/postcss/postcss
-[git-img]: https://img.shields.io/badge/chat-gitter-blue.svg
+[npm-img]: https://img.shields.io/npm/v/postcss-normalize.svg
+[npm-url]: https://www.npmjs.com/package/postcss-normalize
 
-[PostCSS Normalize]: https://github.com/jonathantneal/postcss-normalize
-[PostCSS]: https://github.com/postcss/postcss
-[Gulp PostCSS]: https://github.com/postcss/gulp-postcss
-[Grunt PostCSS]: https://github.com/nDmitry/grunt-postcss
-
-[browserlist]: http://browserl.ist/
+[browserslist]: http://browserl.ist/
 [normalize.css]: https://github.com/jonathantneal/normalize.css
 [Options]: #Options
+[PostCSS]: https://github.com/postcss/postcss
+[PostCSS Normalize]: https://github.com/jonathantneal/postcss-normalize
