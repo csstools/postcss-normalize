@@ -1,5 +1,11 @@
 # Changes to PostCSS Normalize
 
+### 5.0.0 (June 7, 2018)
+
+- Update `browserslist` to v3.2.8 (major)
+- Update: `postcss` to v6.0.22 (patch)
+- Update: Node support from v4 to v6 (major)
+
 ### 4.0.0 (June 21, 2017)
 
 - Require insertion point. Make old behavior an option.

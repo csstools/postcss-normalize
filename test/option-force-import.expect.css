@@ -20,7 +20,6 @@ pre {
 	font-size: 1em;
 }
 a {
-	background-color: transparent;
 	-webkit-text-decoration-skip: objects;
 }
 abbr[title] {
@@ -39,9 +38,6 @@ samp {
 }
 small {
 	font-size: 80%;
-}
-img {
-	border-style: none;
 }
 svg:not(:root) {
 	overflow: hidden;
@@ -100,11 +96,6 @@ select {
 textarea {
 	overflow: auto;
 }
-[type="checkbox"],
-[type="radio"] {
-	box-sizing: border-box;
-	padding: 0;
-}
 [type="number"]::-webkit-inner-spin-button,
 [type="number"]::-webkit-outer-spin-button {
 	height: auto;
@@ -128,9 +119,6 @@ summary {
 	display: list-item;
 }
 template {
-	display: none;
-}
-[hidden] {
 	display: none;
 }
 body {

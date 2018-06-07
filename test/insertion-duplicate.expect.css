@@ -25,7 +25,6 @@ pre {
 }
 
 a {
-	background-color: transparent;
 	-webkit-text-decoration-skip: objects;
 }
 
@@ -48,10 +47,6 @@ samp {
 
 small {
 	font-size: 80%;
-}
-
-img {
-	border-style: none;
 }
 
 svg:not(:root) {
@@ -123,12 +118,6 @@ textarea {
 	overflow: auto;
 }
 
-[type="checkbox"],
-[type="radio"] {
-	box-sizing: border-box;
-	padding: 0;
-}
-
 [type="number"]::-webkit-inner-spin-button,
 [type="number"]::-webkit-outer-spin-button {
 	height: auto;
@@ -158,10 +147,6 @@ summary {
 }
 
 template {
-	display: none;
-}
-
-[hidden] {
 	display: none;
 }
 
