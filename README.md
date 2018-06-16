@@ -11,7 +11,7 @@ Use `@import-normalize` to determine where [normalize.css] rules should be
 included. Duplicate `@import-normalize` rules will be removed. See all the
 [Options] for more information.
 
-```css
+```pcss
 @import-normalize;
 ```
 
@@ -129,15 +129,15 @@ postcssNormalize({
 });
 ```
 
-[cli-img]: https://img.shields.io/travis/jonathantneal/postcss-normalize.svg
-[cli-url]: https://travis-ci.org/jonathantneal/postcss-normalize
+[cli-img]: https://img.shields.io/travis/csstools/postcss-normalize.svg
+[cli-url]: https://travis-ci.org/csstools/postcss-normalize
 [git-img]: https://img.shields.io/badge/support-chat-blue.svg
 [git-url]: https://gitter.im/postcss/postcss
 [npm-img]: https://img.shields.io/npm/v/postcss-normalize.svg
 [npm-url]: https://www.npmjs.com/package/postcss-normalize
 
 [browserslist]: http://browserl.ist/
-[normalize.css]: https://github.com/jonathantneal/normalize.css
-[Options]: #Options
+[normalize.css]: https://github.com/csstools/normalize.css
+[Options]: #options
 [PostCSS]: https://github.com/postcss/postcss
-[PostCSS Normalize]: https://github.com/jonathantneal/postcss-normalize
+[PostCSS Normalize]: https://github.com/csstools/postcss-normalize

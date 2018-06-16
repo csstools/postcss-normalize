@@ -1,5 +1,11 @@
 # Changes to PostCSS Normalize
 
+### 6.0.0 (June 16, 2018)
+
+- Use normalize.css v8 (major)
+- Include normalize.css comments
+- Include normalize.css sourcemap
+
 ### 5.0.0 (June 7, 2018)
 
 - Update `browserslist` to v3.2.8 (major)
