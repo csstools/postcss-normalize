@@ -9,7 +9,7 @@ your [browserslist].
 
 Use `@import-normalize` to determine where [normalize.css] rules should be
 included. Duplicate `@import-normalize` rules will be removed. See all the
-[Options] for more information.
+[Options](#options) for more information.
 
 ```pcss
 @import-normalize;
