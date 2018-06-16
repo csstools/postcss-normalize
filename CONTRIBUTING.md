@@ -26,7 +26,7 @@ scope and avoid unrelated commits.
    cd postcss-normalize
 
    # Assign the original repo to a remote called "upstream"
-   git remote add upstream git@github.com:jonathantneal/postcss-normalize.git
+   git remote add upstream git@github.com:csstools/postcss-normalize.git
 
    # Install the tools necessary for testing
    npm install

@@ -1,6 +1,6 @@
 # Installing PostCSS Normalize
 
-$[PostCSS Normalize] runs in all Node environments, with special instructions for:
+[PostCSS Normalize] runs in all Node environments, with special instructions for:
 
 | [Node](#node) | [Webpack](#webpack) | [Create React App](#create-react-app) | [Gulp](#gulp) | [Grunt](#grunt) |
 | --- | --- | --- | --- | --- |
@@ -144,6 +144,6 @@ grunt.initConfig({
 [Grunt PostCSS]: https://github.com/nDmitry/grunt-postcss
 [PostCSS]: https://github.com/postcss/postcss
 [PostCSS Loader]: https://github.com/postcss/postcss-loader
-[PostCSS Normalize]: https://github.com/jonathantneal/postcss-normalize
+[PostCSS Normalize]: https://github.com/csstools/postcss-normalize
 [React App Rewire PostCSS]: https://github.com/csstools/react-app-rewire-postcss
 [React App Rewired]: https://github.com/timarney/react-app-rewired

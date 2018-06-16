@@ -1,62 +1,58 @@
-// tooling
-const browserslist   = require('browserslist');
-const normalizeRules = require('./lib/normalize.js');
-const postcss        = require('postcss');
+import postcss from 'postcss';
+import postcssBrowserComments from 'postcss-browser-comments';
+import fs from 'fs';
 
-// plugin
-module.exports = postcss.plugin('postcss-normalize', (opts) => {
-	return (root) => {
-		// client browser list
-		const clientBrowserList = browserslist(opts && opts.browsers, {
-			path: root.source && root.source.input && root.source.input.file
-		});
+export default postcss.plugin('postcss-normalize', opts => {
+	const parsedNormalize = parseNormalize(opts);
 
-		// applied rules from normalize
-		const appliedRules = normalizeRules.map(
-			(rule) => {
-				const clone = rule.clone();
-
-				clone.nodes = clone.nodes.filter(
-					(decl, index) => {
-						// whether the declaration browser list matches the client browser list
-						return clientBrowserList.some(
-							(clientBrowser) => browserslist(rule.nodes[index].browserList).some(
-								(declBrowser) => declBrowser === clientBrowser
-							)
-						);
-					}
-				);
-
-				return clone;
-			}
-		).filter(
-			(rule) => rule.nodes.length
-		);
+	return async root => {
+		const normalizeRoot = await parsedNormalize;
 
 		// use @import postcss-normalize insertion point
 		root.walkAtRules(
 			'import-normalize',
-			(atrule) => {
+			atrule => {
 				if (opts && opts.allowDuplicates) {
 					// use any insertion point
-					atrule.replaceWith(
-						appliedRules.map(
-							(rule) => rule.clone()
-						)
-					);
-				} else if (appliedRules[0].parent) {
+					atrule.replaceWith(normalizeRoot);
+				} else if (normalizeRoot.parent) {
 					// remove duplicate insertions
 					atrule.remove();
 				} else {
 					// use the first insertion point
-					atrule.replaceWith(appliedRules);
+					atrule.replaceWith(normalizeRoot);
 				}
 			}
 		);
 
-		if (opts && opts.forceImport && !appliedRules[0].parent) {
+		if (opts && opts.forceImport && !normalizeRoot.parent) {
 			// prepend required normalize rules
-			root.prepend(appliedRules);
+			root.prepend(normalizeRoot);
 		}
 	};
 });
+
+function parseNormalize(opts) {
+	const from = require.resolve('@csstools/normalize.css');
+	const postcssBrowserCommentsParser = postcssBrowserComments(opts);
+
+	return new Promise(
+		(resolve, reject) => fs.readFile(from, 'utf8',
+			(err, res) => {
+				if (err) {
+					reject(err);
+				} else {
+					resolve(res);
+				}
+			}
+		)
+	).then(
+		css => postcss.parse(css, { from })
+	).then(
+		root => {
+			postcssBrowserCommentsParser(root);
+
+			return root;
+		}
+	);
+}
