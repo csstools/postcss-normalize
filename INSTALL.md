@@ -2,7 +2,7 @@
 
 [PostCSS Normalize] runs in all Node environments, with special instructions for:
 
-| [Node](#node) | [Webpack](#webpack) | [Create React App](#create-react-app) | [Gulp](#gulp) | [Grunt](#grunt) |
+| [Node](#node) | [PostCSS CLI](#postcss-cli) | [Webpack](#webpack) | [Create React App](#create-react-app) | [Gulp](#gulp) | [Grunt](#grunt) |
 | --- | --- | --- | --- | --- |
 
 ## Node
@@ -16,7 +16,7 @@ npm install postcss-normalize --save-dev
 Use [PostCSS Normalize] to process your CSS:
 
 ```js
-import postcssNormalize from 'postcss-normalize';
+const postcssNormalize = require('postcss-normalize');
 
 postcssNormalize.process(YOUR_CSS /*, processOptions, pluginOptions */);
 ```
@@ -24,12 +24,33 @@ postcssNormalize.process(YOUR_CSS /*, processOptions, pluginOptions */);
 Or use it as a [PostCSS] plugin:
 
 ```js
-import postcss from 'postcss';
-import postcssNormalize from 'postcss-normalize';
+const postcss = require('postcss');
+const postcssNormalize = require('postcss-normalize');
 
 postcss([
   postcssNormalize(/* pluginOptions */)
 ]).process(YOUR_CSS /*, processOptions */);
+```
+
+## PostCSS CLI
+
+Add [PostCSS CLI] to your project:
+
+```bash
+npm install postcss-cli --save-dev
+```
+
+Use [PostCSS Logical Properties and Values] in your `postcss.config.js`
+configuration file:
+
+```js
+const postcssNormalize = require('postcss-logical');
+
+module.exports = {
+  plugins: [
+    postcssNormalize(/* pluginOptions */)
+  ]
+}
 ```
 
 ## Webpack
@@ -43,7 +64,7 @@ npm install postcss-loader --save-dev
 Use [PostCSS Normalize] in your Webpack configuration:
 
 ```js
-import postcssNormalize from 'postcss-normalize';
+const postcssNormalize = require('postcss-normalize');
 
 module.exports = {
   module: {
@@ -78,8 +99,8 @@ Use [React App Rewire PostCSS] and [PostCSS Normalize] in your
 `config-overrides.js` file:
 
 ```js
-import reactAppRewirePostcss from 'react-app-rewire-postcss';
-import postcssNormalize from 'postcss-normalize';
+const reactAppRewirePostcss = require('react-app-rewire-postcss');
+const postcssNormalize = require('postcss-normalize');
 
 export default config => reactAppRewirePostcss(config, {
   plugins: () => [
@@ -99,8 +120,8 @@ npm install gulp-postcss --save-dev
 Use [PostCSS Normalize] in your Gulpfile:
 
 ```js
-import postcss from 'gulp-postcss';
-import postcssNormalize from 'postcss-normalize';
+const postcss = require('gulp-postcss');
+const postcssNormalize = require('postcss-normalize');
 
 gulp.task('css', () => gulp.src('./src/*.css').pipe(
   postcss([
@@ -122,7 +143,7 @@ npm install grunt-postcss --save-dev
 Use [PostCSS Normalize] in your Gruntfile:
 
 ```js
-import postcssNormalize from 'postcss-normalize';
+const postcssNormalize = require('postcss-normalize');
 
 grunt.loadNpmTasks('grunt-postcss');
 

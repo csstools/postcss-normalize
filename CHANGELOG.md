@@ -1,5 +1,9 @@
 # Changes to PostCSS Normalize
 
+### 7.0.0 (August 24, 2018)
+
+- Use normalize.css v9.0.1 (major)
+
 ### 6.0.0 (June 16, 2018)
 
 - Use normalize.css v8 (major)
