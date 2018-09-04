@@ -2,7 +2,7 @@ body {
 	font-family: sans-serif;
 }
 
-/*! normalize.css v8.0.0 | MIT License | github.com/csstools/normalize.css */
+/*! normalize.css v9.0.1 | MIT License | github.com/csstools/normalize.css */
 
 /* Document
  * ========================================================================== */
@@ -120,14 +120,12 @@ svg:not(:root) {
  * ========================================================================== */
 
 /**
- * Remove the margin in Firefox and Safari.
+ * Remove the margin in Safari.
  */
 
 button,
 input,
-optgroup,
-select,
-textarea {
+select {
   margin: 0;
 }
 
@@ -153,26 +151,6 @@ button,
 }
 
 /**
- * Remove the inner border and padding in Firefox.
- */
-
-::-moz-focus-inner {
-  border-style: none;
-  padding: 0;
-}
-
-/**
- * Restore the focus styles unset by the previous rule in Firefox.
- */
-
-button:-moz-focusring,
-[type="button"]:-moz-focusring,
-[type="reset"]:-moz-focusring,
-[type="submit"]:-moz-focusring {
-  outline: 1px dotted ButtonText;
-}
-
-/**
  * Correct the padding in Firefox.
  */
 
@@ -191,8 +169,6 @@ input {
 /**
  * 1. Correct the text wrapping in Edge and IE.
  * 2. Correct the color inheritance from `fieldset` elements in IE.
- * 3. Remove the padding so developers are not caught out when they zero out
- *    `fieldset` elements in all browsers.
  */
 
 legend {
@@ -200,7 +176,6 @@ legend {
   color: inherit; /* 2 */
   display: table; /* 1 */
   max-width: 100%; /* 1 */
-  padding: 0; /* 3 */
   white-space: normal; /* 1 */
 }
 
@@ -223,20 +198,13 @@ select {
 }
 
 /**
- * Remove the default vertical scrollbar in IE.
+ * 1. Remove the margin in Firefox and Safari.
+ * 2. Remove the default vertical scrollbar in IE.
  */
 
 textarea {
-  overflow: auto;
-}
-
-/**
- * Correct the cursor style of increment and decrement buttons in Chrome.
- */
-
-::-webkit-inner-spin-button,
-::-webkit-outer-spin-button {
-  height: auto;
+  margin: 0; /* 1 */
+  overflow: auto; /* 2 */
 }
 
 /**
@@ -247,6 +215,24 @@ textarea {
 [type="search"] {
   -webkit-appearance: textfield; /* 1 */
   outline-offset: -2px; /* 2 */
+}
+
+/**
+ * Correct the cursor style of increment and decrement buttons in Safari.
+ */
+
+::-webkit-inner-spin-button,
+::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/**
+ * Correct the text style of placeholders in Chrome, Edge, and Safari.
+ */
+
+::-webkit-input-placeholder {
+  color: inherit;
+  opacity: 0.54;
 }
 
 /**
@@ -265,6 +251,23 @@ textarea {
 ::-webkit-file-upload-button {
   -webkit-appearance: button; /* 1 */
   font: inherit; /* 2 */
+}
+
+/**
+ * Remove the inner border and padding of focus outlines in Firefox.
+ */
+
+::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+/**
+ * Restore the focus outline styles unset by the previous rule in Firefox.
+ */
+
+:-moz-focusring {
+  outline: 1px dotted ButtonText;
 }
 
 /* Interactive
