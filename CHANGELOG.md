@@ -1,5 +1,12 @@
 # Changes to PostCSS Normalize
 
+### 7.0.1 (August 24, 2018)
+
+- Use postcss-browser-comments v2.0.0 (major, but a patch for this project)
+
+PostCSS Browser Comments was using an older version of PostCSS, requiring 2
+versions of PostCSS to use PostCSS Normalize. This update resolves that.
+
 ### 7.0.0 (August 24, 2018)
 
 - Use normalize.css v9.0.1 (major)
