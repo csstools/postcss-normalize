@@ -89,17 +89,20 @@ module.exports = {
 
 ## Create React App
 
-Create React App, starting from **v3.0.0**, [natively](https://facebook.github.io/create-react-app/docs/adding-css-reset) supports postcss-normalize. To start using it, simply add
+Starting from **v3.0.0**,
+[Create React App already includes postcss-normalize](https://facebook.github.io/create-react-app/docs/adding-css-reset).
+To start using it, use the `@import-normalize` rule:
 
-```
+```pcss
 // index.css
 
 @import-normalize;
 ```
 
-If you're using ***older versions*** of Create React App, follow these instructions:
+---
 
-Add [React App Rewired] and [React App Rewire PostCSS] to your project:
+If you're using an ***older version*** of Create React App, add
+[React App Rewired] and [React App Rewire PostCSS] to your project:
 
 ```bash
 npm install react-app-rewired react-app-rewire-postcss --save-dev
