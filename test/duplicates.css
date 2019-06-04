@@ -1,0 +1,6 @@
+@import-normalize;
+@import-normalize;
+
+body {
+	display: flex;
+}

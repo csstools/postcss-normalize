@@ -4,16 +4,28 @@
 [![Build Status][cli-img]][cli-url]
 [![Support Chat][git-img]][git-url]
 
-[PostCSS Normalize] lets you use the parts of [normalize.css] you need from
-your [browserslist].
+[PostCSS Normalize] lets you use the parts of [normalize.css] or [sanitize.css]
+that you need from your [browserslist].
 
-Use `@import-normalize` to determine where [normalize.css] rules should be
-included. Duplicate `@import-normalize` rules will be removed. See all the
-[Options] for more information.
+```css
+@import "normalize.css";
+```
+
+**PostCSS Normalize** uses the non-opinionated version of [normalize.css], but
+the opinionated version can also be used. See [CSS Libraries] for more details.
+
+```css
+@import "normalize.css/opinionated.css";
+```
+
+Alternatively, use `@import-normalize` or `@import-sanizie` to avoid conflicts
+with other `@import` transforms.
 
 ```pcss
-@import-normalize;
+@import-sanitize;
 ```
+
+### Examples
 
 Results when [browserslist] is `last 3 versions`:
 
@@ -48,12 +60,6 @@ img {
 }
 ```
 
----
-
-[PostCSS Normalize] uses the non-opinionated version of [normalize.css].
-
----
-
 ## Usage
 
 Add [PostCSS Normalize] to your project:
@@ -73,20 +79,20 @@ Add a [browserslist] entry in `package.json`:
 Use [PostCSS Normalize] to process your CSS:
 
 ```js
-import postcssNormalize from 'postcss-normalize';
+const postcssNormalize = require('postcss-normalize')
 
-postcssNormalize.process(YOUR_CSS /*, processOptions, pluginOptions */);
+postcssNormalize.process(YOUR_CSS /*, processOptions, pluginOptions */)
 ```
 
 Or use it as a [PostCSS] plugin:
 
 ```js
-import postcss from 'postcss';
-import postcssNormalize from 'postcss-normalize';
+const postcss = require('postcss')
+const postcssNormalize = require('postcss-normalize')
 
 postcss([
   postcssNormalize(/* pluginOptions */)
-]).process(YOUR_CSS /*, processOptions */);
+]).process(YOUR_CSS /*, processOptions */)
 ```
 
 [PostCSS Normalize] runs in all Node environments, with special instructions for:
@@ -94,42 +100,81 @@ postcss([
 | [Node](INSTALL.md#node) | [PostCSS CLI](INSTALL.md#postcss-cli) | [Webpack](INSTALL.md#webpack) | [Create React App](INSTALL.md#create-react-app) | [Gulp](INSTALL.md#gulp) | [Grunt](INSTALL.md#grunt) |
 | --- | --- | --- | --- | --- | --- |
 
+## PostCSS Import Usage
+
+```js
+const postcss = require('postcss')
+const postcssImport = require('postcss-import')
+const postcssNormalize = require('postcss-normalize')
+
+postcss([
+  postcssImport(
+    postcssNormalize(
+      /* pluginOptions (for PostCSS Normalize) */
+    ).postcssImport(
+      /* pluginOptions (for PostCSS Import) */
+    )
+  )
+])
+```
+
 ## Options
 
 ### allowDuplicates
 
-Allows you to insert multiple, duplicate insertions of [normalize.css] rules.
-The default is `false`.
+The `allowDuplicates` option determines whether multiple, duplicate insertions
+of CSS libraries are allowed. By default, duplicate libraries are omitted.
 
 ```js
-postcssNormalize({
-  allowDuplicates: true
-});
-```
-
-### browsers
-
-Allows you to override of the project’s [browserslist] for [PostCSS Normalize].
-The default is `false`.
-
-```js
-postcssNormalize({
-  browsers: 'last 2 versions'
-});
+postcssNormalize({ allowDuplicates: true })
 ```
 
 ### forceImport
 
-Allows you to force an insertion of [normalize.css] rules at the beginning of
-the CSS file if no insertion point is specified. The default is `false`.
+The `forceImport` option defines CSS libraries that will be inserted at the
+beginning of the CSS file. Unless overriden by `allowDuplicates`, duplicate
+CSS libraries would still be omitted.
+
+```js
+postcssNormalize({ forceImport: true })
+```
+
+Specific CSS libraries may be defined.
 
 ```js
 postcssNormalize({
-  forceImport: true
-});
+  forceImport: 'sanitize.css'
+})
 ```
 
-[cli-img]: https://img.shields.io/travis/csstools/postcss-normalize.svg
+### browsers
+
+The `browsers` option defines an override of the project’s [browserslist] for
+[PostCSS Normalize]. This option should be avoided in leui of a browserslist
+file.
+
+```js
+postcssNormalize({ browsers: 'last 2 versions' })
+```
+
+---
+
+## CSS Libraries
+
+**PostCSS Normalize** can include [normalize.css] or [sanitize.css] and
+configure either in the following combinations:
+
+```css
+@import "normalize"; /* also, @import "normalize.css" */
+@import "normalize/opinionated"; /* also, @import "normalize.css/opinionated.css", @import "normalize.css/*" */
+@import "sanitize"; /* also, @import "sanitize.css" */
+@import "sanitize/forms"; /* also, @import "sanitize.css/forms.css" */
+@import "sanitize/typography"; /* also, @import "sanitize.css/typography.css" */
+@import "sanitize/page"; /* also, @import "sanitize.css/page.css" */
+@import "sanitize/*"; /* also, @import "sanitize.css/*" (sanitize + all additions) */
+```
+
+[cli-img]: https://img.shields.io/travis/csstools/postcss-normalize/master.svg
 [cli-url]: https://travis-ci.org/csstools/postcss-normalize
 [git-img]: https://img.shields.io/badge/support-chat-blue.svg
 [git-url]: https://gitter.im/postcss/postcss

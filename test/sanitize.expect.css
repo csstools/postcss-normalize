@@ -1,26 +1,62 @@
-/*! normalize.css v9.0.1 | MIT License | github.com/csstools/normalize.css */
-
 /* Document
  * ========================================================================== */
 
 /**
- * 1. Correct the line height in all browsers.
- * 2. Prevent adjustments of font size after orientation changes in
+ * Add border box sizing in all browsers (opinionated).
+ */
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+/**
+ * 1. Add text decoration inheritance in all browsers (opinionated).
+ * 2. Add vertical alignment inheritance in all browsers (opinionated).
+ */
+
+::before,
+::after {
+  text-decoration: inherit; /* 1 */
+  vertical-align: inherit; /* 2 */
+}
+
+/**
+ * 1. Use the default cursor in all browsers (opinionated).
+ * 2. Change the line height in all browsers (opinionated).
+ * 3. Use a 4-space tab width in all browsers (opinionated).
+ * 4. Remove the grey highlight on links in iOS (opinionated).
+ * 5. Prevent adjustments of font size after orientation changes in
  *    IE on Windows Phone and in iOS.
+ * 6. Breaks words to prevent overflow in all browsers (opinionated).
  */
 
 html {
-  line-height: 1.15; /* 1 */
-  -ms-text-size-adjust: 100%; /* 2 */
-  -webkit-text-size-adjust: 100%; /* 2 */
+  cursor: default; /* 1 */
+  line-height: 1.5; /* 2 */
+  -moz-tab-size: 4; /* 3 */
+  tab-size: 4; /* 3 */
+  -webkit-tap-highlight-color: transparent /* 4 */;
+  -ms-text-size-adjust: 100%; /* 5 */
+  -webkit-text-size-adjust: 100%; /* 5 */
+  word-break: break-word; /* 6 */
 }
 
 /* Sections
  * ========================================================================== */
 
 /**
+ * Remove the margin in all browsers (opinionated).
+ */
+
+body {
+  margin: 0;
+}
+
+/**
  * Correct the font size and margin on `h1` elements within `section` and
- * `article` contexts in Chrome, Firefox, and Safari.
+ * `article` contexts in Chrome, Edge, Firefox, and Safari.
  */
 
 h1 {
@@ -32,12 +68,34 @@ h1 {
  * ========================================================================== */
 
 /**
- * 1. Add the correct box sizing in Firefox.
- * 2. Show the overflow in Edge and IE.
+ * Remove the margin on nested lists in Chrome, Edge, IE, and Safari.
+ */
+
+dl dl,
+dl ol,
+dl ul,
+ol dl,
+ul dl {
+  margin: 0;
+}
+
+/**
+ * Remove the margin on nested lists in Edge 18- and IE.
+ */
+
+ol ol,
+ol ul,
+ul ol,
+ul ul {
+  margin: 0;
+}
+
+/**
+ * 1. Add the correct sizing in Firefox.
+ * 2. Show the overflow in Edge 18- and IE.
  */
 
 hr {
-  box-sizing: content-box; /* 1 */
   height: 0; /* 1 */
   overflow: visible; /* 2 */
 }
@@ -48,6 +106,16 @@ hr {
 
 main {
   display: block;
+}
+
+/**
+ * Remove the list style on navigation lists in all browsers (opinionated).
+ */
+
+nav ol,
+nav ul {
+  list-style: none;
+  padding: 0;
 }
 
 /**
@@ -64,7 +132,7 @@ pre {
  * ========================================================================== */
 
 /**
- * Add the correct text decoration in Edge, IE, Opera, and Safari.
+ * Add the correct text decoration in Edge 18-, IE, and Safari.
  */
 
 abbr[title] {
@@ -104,6 +172,35 @@ small {
 /* Embedded content
  * ========================================================================== */
 
+/*
+ * Change the alignment on media elements in all browsers (opinionated).
+ */
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+  vertical-align: middle;
+}
+
+/**
+ * Remove the border on iframes in all browsers (opinionated).
+ */
+
+iframe {
+  border-style: none;
+}
+
+/**
+ * Change the fill color to match the text color in all browsers (opinionated).
+ */
+
+svg:not([fill]) {
+  fill: currentColor;
+}
+
 /**
  * Hide the overflow in IE.
  */
@@ -112,11 +209,22 @@ svg:not(:root) {
   overflow: hidden;
 }
 
+/* Tabular data
+ * ========================================================================== */
+
+/**
+ * Collapse border spacing in all browsers (opinionated).
+ */
+
+table {
+  border-collapse: collapse;
+}
+
 /* Forms
  * ========================================================================== */
 
 /**
- * Remove the margin in Safari.
+ * Remove the margin on controls in Safari.
  */
 
 button,
@@ -127,7 +235,7 @@ select {
 
 /**
  * 1. Show the overflow in IE.
- * 2. Remove the inheritance of text transform in Edge, Firefox, and IE.
+ * 2. Remove the inheritance of text transform in Edge 18-, Firefox, and IE.
  */
 
 button {
@@ -136,7 +244,7 @@ button {
 }
 
 /**
- * Correct the inability to style clickable types in iOS and Safari.
+ * Correct the inability to style buttons in iOS and Safari.
  */
 
 button,
@@ -147,15 +255,17 @@ button,
 }
 
 /**
- * Correct the padding in Firefox.
+ * 1. Change the inconsistent appearance in all browsers (opinionated).
+ * 2. Correct the padding in Firefox.
  */
 
 fieldset {
-  padding: 0.35em 0.75em 0.625em;
+  border: 1px solid #a0a0a0; /* 1 */
+  padding: 0.35em 0.75em 0.625em; /* 2 */
 }
 
 /**
- * Show the overflow in Edge and IE.
+ * Show the overflow in Edge 18- and IE.
  */
 
 input {
@@ -163,12 +273,11 @@ input {
 }
 
 /**
- * 1. Correct the text wrapping in Edge and IE.
+ * 1. Correct the text wrapping in Edge 18- and IE.
  * 2. Correct the color inheritance from `fieldset` elements in IE.
  */
 
 legend {
-  box-sizing: border-box; /* 1 */
   color: inherit; /* 2 */
   display: table; /* 1 */
   max-width: 100%; /* 1 */
@@ -176,8 +285,8 @@ legend {
 }
 
 /**
- * 1. Add the correct display in Edge and IE.
- * 2. Add the correct vertical alignment in Chrome, Firefox, and Opera.
+ * 1. Add the correct display in Edge 18- and IE.
+ * 2. Add the correct vertical alignment in Chrome, Edge, and Firefox.
  */
 
 progress {
@@ -196,15 +305,17 @@ select {
 /**
  * 1. Remove the margin in Firefox and Safari.
  * 2. Remove the default vertical scrollbar in IE.
+ * 3. Change the resize direction in all browsers (opinionated).
  */
 
 textarea {
   margin: 0; /* 1 */
   overflow: auto; /* 2 */
+  resize: vertical; /* 3 */
 }
 
 /**
- * 1. Correct the odd appearance in Chrome and Safari.
+ * 1. Correct the odd appearance in Chrome, Edge, and Safari.
  * 2. Correct the outline style in Safari.
  */
 
@@ -232,7 +343,7 @@ textarea {
 }
 
 /**
- * Remove the inner padding in Chrome and Safari on macOS.
+ * Remove the inner padding in Chrome, Edge, and Safari on macOS.
  */
 
 ::-webkit-search-decoration {
@@ -240,7 +351,7 @@ textarea {
 }
 
 /**
- * 1. Correct the inability to style clickable types in iOS and Safari.
+ * 1. Correct the inability to style upload buttons in iOS and Safari.
  * 2. Change font properties to `inherit` in Safari.
  */
 
@@ -266,11 +377,19 @@ textarea {
   outline: 1px dotted ButtonText;
 }
 
+/**
+ * Remove the additional :invalid styles in Firefox.
+ */
+
+:-moz-ui-invalid {
+  box-shadow: none;
+}
+
 /* Interactive
  * ========================================================================== */
 
 /*
- * Add the correct display in Edge and IE.
+ * Add the correct display in Edge 18- and IE.
  */
 
 details {
@@ -278,7 +397,7 @@ details {
 }
 
 /*
- * Add the correct styles in Edge, IE, and Safari.
+ * Add the correct styles in Edge 18-, IE, and Safari.
  */
 
 dialog {
@@ -324,6 +443,68 @@ template {
 
 /* User interaction
  * ========================================================================== */
+
+/*
+ * 1. Remove the tapping delay in IE 10.
+ * 2. Remove the tapping delay on clickable elements
+      in all browsers (opinionated).
+ */
+
+a,
+area,
+button,
+input,
+label,
+select,
+summary,
+textarea,
+[tabindex] {
+  -ms-touch-action: manipulation; /* 1 */
+  touch-action: manipulation; /* 2 */
+}
+
+/* Accessibility
+ * ========================================================================== */
+
+/**
+ * Change the cursor on busy elements in all browsers (opinionated).
+ */
+
+[aria-busy="true"] {
+  cursor: progress;
+}
+
+/*
+ * Change the cursor on control elements in all browsers (opinionated).
+ */
+
+[aria-controls] {
+  cursor: pointer;
+}
+
+/*
+ * Change the cursor on disabled, not-editable, or otherwise
+ * inoperable elements in all browsers (opinionated).
+ */
+
+[aria-disabled="true"],
+[disabled] {
+  cursor: not-allowed;
+}
+
+/*
+ * Change the display on visually hidden accessible elements
+ * in all browsers (opinionated).
+ */
+
+[aria-hidden="false"][hidden] {
+  display: initial;
+}
+
+[aria-hidden="false"][hidden]:not(:focus) {
+  clip: rect(0, 0, 0, 0);
+  position: absolute;
+}
 
 body {
 	font-family: sans-serif;

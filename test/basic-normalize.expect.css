@@ -1,9 +1,3 @@
-body {
-	font-family: sans-serif;
-}
-
-/*! normalize.css v9.0.1 | MIT License | github.com/csstools/normalize.css */
-
 /* Document
  * ========================================================================== */
 
@@ -24,7 +18,7 @@ html {
 
 /**
  * Correct the font size and margin on `h1` elements within `section` and
- * `article` contexts in Chrome, Firefox, and Safari.
+ * `article` contexts in Chrome, Edge, Firefox, and Safari.
  */
 
 h1 {
@@ -36,8 +30,31 @@ h1 {
  * ========================================================================== */
 
 /**
+ * Remove the margin on nested lists in Chrome, Edge, IE, and Safari.
+ */
+
+dl dl,
+dl ol,
+dl ul,
+ol dl,
+ul dl {
+  margin: 0;
+}
+
+/**
+ * Remove the margin on nested lists in Edge 18- and IE.
+ */
+
+ol ol,
+ol ul,
+ul ol,
+ul ul {
+  margin: 0;
+}
+
+/**
  * 1. Add the correct box sizing in Firefox.
- * 2. Show the overflow in Edge and IE.
+ * 2. Show the overflow in Edge 18- and IE.
  */
 
 hr {
@@ -68,7 +85,7 @@ pre {
  * ========================================================================== */
 
 /**
- * Add the correct text decoration in Edge, IE, Opera, and Safari.
+ * Add the correct text decoration in Edge 18-, IE, and Safari.
  */
 
 abbr[title] {
@@ -120,7 +137,7 @@ svg:not(:root) {
  * ========================================================================== */
 
 /**
- * Remove the margin in Safari.
+ * Remove the margin on controls in Safari.
  */
 
 button,
@@ -131,7 +148,7 @@ select {
 
 /**
  * 1. Show the overflow in IE.
- * 2. Remove the inheritance of text transform in Edge, Firefox, and IE.
+ * 2. Remove the inheritance of text transform in Edge 18-, Firefox, and IE.
  */
 
 button {
@@ -140,7 +157,7 @@ button {
 }
 
 /**
- * Correct the inability to style clickable types in iOS and Safari.
+ * Correct the inability to style buttons in iOS and Safari.
  */
 
 button,
@@ -159,7 +176,7 @@ fieldset {
 }
 
 /**
- * Show the overflow in Edge and IE.
+ * Show the overflow in Edge 18- and IE.
  */
 
 input {
@@ -167,7 +184,7 @@ input {
 }
 
 /**
- * 1. Correct the text wrapping in Edge and IE.
+ * 1. Correct the text wrapping in Edge 18- and IE.
  * 2. Correct the color inheritance from `fieldset` elements in IE.
  */
 
@@ -180,8 +197,8 @@ legend {
 }
 
 /**
- * 1. Add the correct display in Edge and IE.
- * 2. Add the correct vertical alignment in Chrome, Firefox, and Opera.
+ * 1. Add the correct display in Edge 18- and IE.
+ * 2. Add the correct vertical alignment in Chrome, Edge, and Firefox.
  */
 
 progress {
@@ -208,7 +225,7 @@ textarea {
 }
 
 /**
- * 1. Correct the odd appearance in Chrome and Safari.
+ * 1. Correct the odd appearance in Chrome, Edge, and Safari.
  * 2. Correct the outline style in Safari.
  */
 
@@ -236,7 +253,7 @@ textarea {
 }
 
 /**
- * Remove the inner padding in Chrome and Safari on macOS.
+ * Remove the inner padding in Chrome, Edge, and Safari on macOS.
  */
 
 ::-webkit-search-decoration {
@@ -244,7 +261,7 @@ textarea {
 }
 
 /**
- * 1. Correct the inability to style clickable types in iOS and Safari.
+ * 1. Correct the inability to style upload buttons in iOS and Safari.
  * 2. Change font properties to `inherit` in Safari.
  */
 
@@ -270,11 +287,19 @@ textarea {
   outline: 1px dotted ButtonText;
 }
 
+/**
+ * Remove the additional :invalid styles in Firefox.
+ */
+
+:-moz-ui-invalid {
+  box-shadow: none;
+}
+
 /* Interactive
  * ========================================================================== */
 
 /*
- * Add the correct display in Edge and IE.
+ * Add the correct display in Edge 18- and IE.
  */
 
 details {
@@ -282,7 +307,7 @@ details {
 }
 
 /*
- * Add the correct styles in Edge, IE, and Safari.
+ * Add the correct styles in Edge 18-, IE, and Safari.
  */
 
 dialog {
@@ -328,3 +353,7 @@ template {
 
 /* User interaction
  * ========================================================================== */
+
+body {
+	font-family: sans-serif;
+}
