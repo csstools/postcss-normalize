@@ -5,6 +5,7 @@ package-lock.json
 *.result.css
 .*
 !.editorconfig
+!.gitattributes
 !.gitignore
 !.rollup.js
 !.tape.js

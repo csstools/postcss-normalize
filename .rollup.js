@@ -7,6 +7,7 @@ export default {
 		{ file: 'index.esm.mjs', format: 'esm', sourcemap: true, strict: false }
 	],
 	plugins: [
+		patchBabelPluginSyntaxImportMeta(),
 		babel({
 			plugins: [
 				['@babel/plugin-syntax-import-meta']
@@ -14,18 +15,25 @@ export default {
 			presets: [
 				['@babel/preset-env', { modules: false, targets: { node: 8 } }]
 			]
-		}),
-		patchBabelPluginSyntaxImportMeta()
+		})
 	]
 };
 
 function patchBabelPluginSyntaxImportMeta () {
 	return {
 		name: 'patch-babel-plugin-syntax-import-meta',
-		renderChunk (code) {
-			const requireMatch = /new \(require\('u' \+ 'rl'\)\.URL\)/;
+		renderChunk (code, chunk, options) {
+			const currentUrlMatch = /var url = require\('url'\);([\W\w]+)const currentURL[^\n]+\nconst currentFilename[^\n]+/;
 
-			return code.replace(requireMatch, 'new url.URL');
+			const shouldTransformImportMeta = options.format === 'cjs' && currentUrlMatch.test(code);
+
+			if (shouldTransformImportMeta) {
+				const updatedCode = code.replace(currentUrlMatch, '$1const currentFilename = __filename;');
+
+				return updatedCode;
+			}
+
+			return null;
 		}
 	};
 }
