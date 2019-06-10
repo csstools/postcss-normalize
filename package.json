@@ -1,6 +1,6 @@
 {
   "name": "postcss-normalize",
-  "version": "8.0.0",
+  "version": "8.0.1",
   "description": "Use the parts of normalize.css or sanitize.css you need from your browserslist",
   "author": "Jonathan Neal <jonathantneal@hotmail.com>",
   "license": "CC0-1.0",
@@ -28,8 +28,8 @@
   },
   "dependencies": {
     "@csstools/normalize.css": "^10.1.0",
-    "browserslist": "^4.6.1",
-    "postcss": "^7.0.16",
+    "browserslist": "^4.6.2",
+    "postcss": "^7.0.17",
     "postcss-browser-comments": "^3.0.0",
     "sanitize.css": "^10.0.0"
   },
@@ -42,7 +42,7 @@
     "postcss-import": "^12.0.1",
     "postcss-tape": "^5.0.0",
     "pre-commit": "^1.2.2",
-    "rollup": "^1.13.1",
+    "rollup": "^1.14.6",
     "rollup-plugin-babel": "^4.3.2"
   },
   "eslintConfig": {

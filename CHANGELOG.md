@@ -1,5 +1,11 @@
 # Changes to PostCSS Normalize
 
+### 8.0.1 (June 10, 2019)
+
+- Fixed: Issue with Windows failing to resolve normalize
+- Updated: `browserslist` to 4.6.2 (patch)
+- Updated: `postcss` to 7.0.17 (patch)
+
 ### 8.0.0 (June 3, 2019)
 
 - Added: `sanitize.css` 10.0.0 (major)
@@ -27,9 +33,9 @@ versions of PostCSS to use PostCSS Normalize. This update resolves that.
 
 ### 5.0.0 (June 7, 2018)
 
-- Update `browserslist` to v3.2.8 (major)
-- Update: `postcss` to v6.0.22 (patch)
-- Update: Node support from v4 to v6 (major)
+- Update `browserslist` to 3.2.8 (major)
+- Update: `postcss` to 6.0.22 (patch)
+- Update: Node support from v4 to 6 (major)
 
 ### 4.0.0 (June 21, 2017)
 
