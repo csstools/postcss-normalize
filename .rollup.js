@@ -1,39 +1,28 @@
-import babel from 'rollup-plugin-babel';
+import pkg from './package.json'
 
 export default {
-	input: 'src/index.js',
-	output: [
-		{ file: 'index.cjs.js', format: 'cjs', sourcemap: true, strict: false },
-		{ file: 'index.esm.mjs', format: 'esm', sourcemap: true, strict: false }
-	],
-	plugins: [
-		patchBabelPluginSyntaxImportMeta(),
-		babel({
-			plugins: [
-				['@babel/plugin-syntax-import-meta']
-			],
-			presets: [
-				['@babel/preset-env', { modules: false, targets: { node: 8 } }]
-			]
-		})
-	]
-};
+	...pkg.rollup,
+	plugins: [patchBabelPluginSyntaxImportMeta(), ...pkg.rollup.plugins.map(plugin => require(plugin)())],
+	onwarn(warning, warn) {
+		if (warning.code !== 'UNRESOLVED_IMPORT') warn(warning)
+	}
+}
 
 function patchBabelPluginSyntaxImportMeta () {
 	return {
 		name: 'patch-babel-plugin-syntax-import-meta',
 		renderChunk (code, chunk, options) {
-			const currentUrlMatch = /var url = require\('url'\);([\W\w]+)const currentURL[^\n]+\nconst currentFilename[^\n]+/;
+			const currentUrlMatch = /var url = require\('url'\);([\W\w]+)const currentURL[^\n]+\n(const currentFilename)[^\n]+/
 
-			const shouldTransformImportMeta = options.format === 'cjs' && currentUrlMatch.test(code);
+			const shouldTransformImportMeta = options.format === 'cjs' && currentUrlMatch.test(code)
 
 			if (shouldTransformImportMeta) {
-				const updatedCode = code.replace(currentUrlMatch, '$1const currentFilename = __filename;');
+				const updatedCode = code.replace(currentUrlMatch, '$1$2 = __filename;')
 
-				return updatedCode;
+				return updatedCode
 			}
 
-			return null;
+			return null
 		}
-	};
+	}
 }

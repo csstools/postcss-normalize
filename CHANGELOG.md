@@ -1,5 +1,12 @@
 # Changes to PostCSS Normalize
 
+### 9.0.0 (April 12, 2020)
+
+- Updated: `normalize.css` to support any version (major)
+- Updated: `sanitize.css` to support any version (major)
+- Updated: Node support to 10.0.0 (major).
+- Removed: Unused `browserslist` dependency
+
 ### 8.0.1 (June 10, 2019)
 
 - Fixed: Issue with Windows failing to resolve normalize
@@ -44,7 +51,7 @@ versions of PostCSS to use PostCSS Normalize. This update resolves that.
 
 ### 3.0.0 (May 26, 2017)
 
-- Use jonathantneal/normalize.css v7
+- Use csstools/normalize.css v7
 - Change the insertion point to `@import-normalize` to avoid confusion or
   collision with standard import behavior
 
