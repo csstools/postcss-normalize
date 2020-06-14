@@ -94,7 +94,7 @@ const postcssPlugin = (commentsTransformer, opts) => root => {
 };
 
 const cssExtRegExp = /\.css\b/g;
-const importRegExp = /^import(?:-(normalize|sanitize))?$/;
+const importRegExp = /^(?:import|use)(?:-(normalize|sanitize))?$/;
 const paramsRegExp = /^\s*(?:url\((?:"(.+)"|'(.+)')\)|"(.+)"|'(.+)')[\W\w]*$/;
 
 export default postcssPlugin;

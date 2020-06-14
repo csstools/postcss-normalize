@@ -26,6 +26,16 @@ module.exports = {
 		message: 'supports @import "sanitize/*" + (forms + page + typography) usage'
 	},
 
+	/* Test @use Usage */
+	'use-normalize': {
+		message: 'supports @use "normalize" usage',
+		expect: "normalize.expect.css"
+	},
+	'use-sanitize': {
+		message: 'supports @use "sanitize" usage',
+		expect: "sanitize.expect.css"
+	},
+
 	/* Test { browsers } Usage */
 	'browsers-normalize': {
 		message: 'supports { browsers: "last 2 * versions, not EdgeHTML" }',
