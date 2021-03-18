@@ -25,10 +25,10 @@
     "node": ">=10.0.0"
   },
   "dependencies": {
-    "@csstools/normalize.css": "*",
+    "@csstools/normalize.css": "10.1.0",
     "postcss": "^7.0.27",
     "postcss-browser-comments": "^3.0.0",
-    "sanitize.css": "*"
+    "sanitize.css": "11.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
