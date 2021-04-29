@@ -1,5 +1,10 @@
 # Changes to PostCSS Normalize
 
+### 10.0.0 (April 28, 2021)
+
+- Updated PostCSS support to ^8 (major).
+- Updated Node support to 12+ (major).
+
 ### 9.0.0 (April 12, 2020)
 
 - Updated: `normalize.css` to support any version (major)
