@@ -1,14 +1,14 @@
-import { create } from './lib/util';
-import postcssBrowserComments from 'postcss-browser-comments';
-import postcssImportNormalize from './lib/postcssImportNormalize';
-import postcssNormalize from './lib/postcssNormalize';
+import { create } from './lib/util'
+import postcssBrowserComments from 'postcss-browser-comments'
+import postcssImportNormalize from './lib/postcssImportNormalize'
+import postcssNormalize from './lib/postcssNormalize'
 
 const plugin = opts => {
-	opts = create(opts);
+	opts = create(opts)
 
-	const commentsTransformer = postcssBrowserComments(opts).Once;
-	const normalizeTransformer = postcssNormalize(commentsTransformer, opts);
-	const postcssImportConfig = postcssImportNormalize(commentsTransformer, opts);
+	const commentsTransformer = postcssBrowserComments(opts).Once
+	const normalizeTransformer = postcssNormalize(commentsTransformer, opts)
+	const postcssImportConfig = postcssImportNormalize(commentsTransformer, opts)
 
 	return {
 		postcssPlugin: 'postcss-normalize',
@@ -19,6 +19,6 @@ const plugin = opts => {
 	}
 }
 
-plugin.postcss = true;
+plugin.postcss = true
 
-export default plugin;
+export default plugin

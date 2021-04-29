@@ -71,13 +71,13 @@ module.exports = {
 		source: 'import-normalize.css',
 		expect: 'import-normalize.expect.css',
 		plugin: (() => {
-			const postcss = require('postcss');
-			const postcssImport = require('postcss-import');
-			const postcssNormalize = require('.');
+			const postcss = require('postcss')
+			const postcssImport = require('postcss-import')
+			const postcssNormalize = require('.')
 
-			const plugin = postcss([ postcssImport(postcssNormalize().postcssImport()) ]);
+			const plugin = postcss([ postcssImport(postcssNormalize().postcssImport()) ])
 
-			return plugin;
+			return plugin
 		})()
 	}
-};
+}

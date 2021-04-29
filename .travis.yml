@@ -8,7 +8,4 @@ os:
   - osx
 
 node_js:
-  - 10
-
-install:
-  - npm install --ignore-scripts
+  - 12

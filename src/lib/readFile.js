@@ -1,13 +1,13 @@
-import { create } from './util';
-import path from 'path';
-import fs from 'fs';
+import { create } from './util'
+import path from 'path'
+import fs from 'fs'
 
-const cache = create();
+const cache = create()
 
 export default async function readFile (filename) {
-	filename = path.resolve(filename);
+	filename = path.resolve(filename)
 
-	cache[filename] = cache[filename] || create();
+	cache[filename] = cache[filename] || create()
 
 	return new Promise(
 		(resolve, reject) => fs.stat(
@@ -26,5 +26,5 @@ export default async function readFile (filename) {
 				)
 			)
 		)
-	);
+	)
 }

@@ -1,7 +1,7 @@
 # PostCSS Normalize [<img src="https://postcss.github.io/postcss/logo.svg" alt="PostCSS" width="90" height="90" align="right">][postcss]
 
 [<img alt="npm version" src="https://img.shields.io/npm/v/postcss-normalize.svg" height="20">][npm-url]
-[<img alt="build status" src="https://img.shields.io/travis/csstools/postcss-normalize/master.svg" height="20">][cli-url]
+[<img alt="build status" src="https://img.shields.io/travis/csstools/postcss-normalize/main.svg" height="20">][cli-url]
 [<img alt="support chat" src="https://img.shields.io/badge/support-chat-blue.svg" height="20">][git-url]
 
 [PostCSS Normalize] lets you use the parts of [normalize.css] or [sanitize.css]
@@ -189,7 +189,7 @@ configure either with the following combinations:
 @import "sanitize/*"; /* also, @import "sanitize.css/*" (sanitize + all additions) */
 ```
 
-[cli-img]: https://img.shields.io/travis/csstools/postcss-normalize/master.svg
+[cli-img]: https://img.shields.io/travis/csstools/postcss-normalize/main.svg
 [cli-url]: https://travis-ci.org/csstools/postcss-normalize
 [git-img]: https://img.shields.io/badge/support-chat-blue.svg
 [git-url]: https://gitter.im/postcss/postcss

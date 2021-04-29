@@ -1,10 +1,10 @@
-import { create } from './util';
-import { parsableFilenames, resolvedFilenamesById } from './cssMap';
-import parse from './parse';
-import readFile from './readFile';
+import { create } from './util'
+import { parsableFilenames, resolvedFilenamesById } from './cssMap'
+import parse from './parse'
+import readFile from './readFile'
 
 export default commentsTransformer => opts => {
-	opts = create(opts);
+	opts = create(opts)
 
 	// return an postcss-import configuration
 	return create({
@@ -18,11 +18,11 @@ export default commentsTransformer => opts => {
 				// otherwise, use the override loader
 				? opts.load.call(null, filename, importOptions)
 			// otherwise, return the (conservatively cached) contents of the file
-			: readFile(filename);
+			: readFile(filename)
 		},
 		resolve (id, basedir, importOptions) {
 			// get the css id by removing css extensions
-			const cssId = id.replace(cssExtRegExp, '');
+			const cssId = id.replace(cssExtRegExp, '')
 
 			return cssId in resolvedFilenamesById
 				// return the known resolved path for the css id
@@ -31,9 +31,9 @@ export default commentsTransformer => opts => {
 				// otherwise, use the override resolver
 				? opts.resolve.call(null, id, basedir, importOptions)
 			// otherwise, return the id to be resolved by postcss-import
-			: id;
+			: id
 		}
-	});
-};
+	})
+}
 
-const cssExtRegExp = /\.css\b/g;
+const cssExtRegExp = /\.css\b/g

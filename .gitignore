@@ -1,6 +1,8 @@
-dist
+index.cjs*
+index.mjs*
 node_modules
 package-lock.json
+yarn.lock
 *.log*
 *.result.css
 .*

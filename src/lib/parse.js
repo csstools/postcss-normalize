@@ -1,8 +1,8 @@
-import { create } from './util';
-import readFile from './readFile';
-import postcss from 'postcss';
+import { create } from './util'
+import readFile from './readFile'
+import postcss from 'postcss'
 
-const cache = create(null);
+const cache = create(null)
 
 export default (filename, transformer) => readFile(filename).then(
 	// cache the parsed css root
@@ -18,4 +18,4 @@ export default (filename, transformer) => readFile(filename).then(
 		// resolve the cloned root
 		() => clone
 	)
-);
+)

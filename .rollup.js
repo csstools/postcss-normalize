@@ -1,11 +1,19 @@
-import pkg from './package.json'
+import babel from 'rollup-plugin-babel'
 
 export default {
-	...pkg.rollup,
-	plugins: [patchBabelPluginSyntaxImportMeta(), ...pkg.rollup.plugins.map(plugin => require(plugin)())],
-	onwarn(warning, warn) {
-		if (warning.code !== 'UNRESOLVED_IMPORT') warn(warning)
-	}
+	input: 'src/index.js',
+	output: [
+		{ file: 'index.cjs', format: 'cjs', exports: 'default', sourcemap: true, strict: false },
+		{ file: 'index.mjs', format: 'esm', sourcemap: true, strict: false }
+	],
+	plugins: [
+		patchBabelPluginSyntaxImportMeta(),
+		babel({
+			presets: [
+				['@babel/env', { modules: false, targets: { node: 8 } }]
+			]
+		})
+	]
 }
 
 function patchBabelPluginSyntaxImportMeta () {

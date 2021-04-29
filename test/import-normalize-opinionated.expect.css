@@ -62,13 +62,15 @@ ul ul {
 
 /**
  * 1. Add the correct box sizing in Firefox.
- * 2. Show the overflow in Edge 18- and IE.
+ * 2. Correct the inheritance of border color in Firefox.
+ * 3. Show the overflow in Edge 18- and IE.
  */
 
 hr {
   box-sizing: content-box; /* 1 */
+  color: inherit; /* 2 */
   height: 0; /* 1 */
-  overflow: visible; /* 2 */
+  overflow: visible; /* 3 */
 }
 
 /**
@@ -139,6 +141,19 @@ small {
 
 svg:not(:root) {
   overflow: hidden;
+}
+
+/* Tabular data
+ * ========================================================================== */
+
+/**
+ * 1. Correct table border color inheritance in all Chrome, Edge, and Safari.
+ * 2. Remove text indentation from table contents in Chrome, Edge, and Safari.
+ */
+
+table {
+  border-color: inherit; /* 1 */
+  text-indent: 0; /* 2 */
 }
 
 /* Forms
@@ -223,7 +238,6 @@ select {
 }
 
 /**
- * 1. Change the font styles in all browsers (opinionated).
  * 2. Remove the margin in Firefox and Safari.
  * 3. Remove the default vertical scrollbar in IE.
  */
