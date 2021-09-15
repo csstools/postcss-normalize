@@ -13,7 +13,6 @@ const normalizeCSS = resolve('@csstools/normalize.css')
 const normalizeOpinionatedCSS = resolve('@csstools/normalize.css/opinionated.css')
 const sanitizeCSS = resolve('sanitize.css')
 const sanitizeFormsCSS = resolve('sanitize.css/forms.css')
-const sanitizePageCSS = resolve('sanitize.css/page.css')
 const sanitizeTypographyCSS = resolve('sanitize.css/typography.css')
 
 // export a hashmap of css library filenames
@@ -22,7 +21,6 @@ export const parsableFilenames = create({
 	[normalizeOpinionatedCSS]: true,
 	[sanitizeCSS]: true,
 	[sanitizeFormsCSS]: true,
-	[sanitizePageCSS]: true,
 	[sanitizeTypographyCSS]: true
 })
 
@@ -33,9 +31,9 @@ export const resolvedFilenamesById = create({
 	'normalize/*': [normalizeOpinionatedCSS],
 	'sanitize': [sanitizeCSS],
 	'sanitize/forms': [sanitizeCSS, sanitizeFormsCSS],
-	'sanitize/page': [sanitizeCSS, sanitizePageCSS],
+	'sanitize/page': [sanitizeCSS],
 	'sanitize/typography': [sanitizeCSS, sanitizeTypographyCSS],
-	'sanitize/*': [sanitizeCSS, sanitizeFormsCSS, sanitizePageCSS, sanitizeTypographyCSS]
+	'sanitize/*': [sanitizeCSS, sanitizeFormsCSS, sanitizeTypographyCSS]
 })
 
 // get the resolved filename of a package/module
