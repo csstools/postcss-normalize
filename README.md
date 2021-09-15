@@ -185,7 +185,6 @@ configure either with the following combinations:
 @import "sanitize"; /* also, @import "sanitize.css" */
 @import "sanitize/forms"; /* also, @import "sanitize.css/forms.css" */
 @import "sanitize/typography"; /* also, @import "sanitize.css/typography.css" */
-@import "sanitize/page"; /* also, @import "sanitize.css/page.css" */
 @import "sanitize/*"; /* also, @import "sanitize.css/*" (sanitize + all additions) */
 ```
 
