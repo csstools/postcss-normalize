@@ -1,5 +1,13 @@
 # Changes to PostCSS Normalize
 
+### 10.0.1 (September 15, 2021)
+
+- Added: `sanitize.css` to support 13+ (major).
+
+This version removes support for `pages.css` yet is released as a patch version
+to resolve issues in **Create React App**. This is a betrayal of semantic
+versioning.
+
 ### 10.0.0 (April 28, 2021)
 
 - Updated: PostCSS support to ^8 (major).
