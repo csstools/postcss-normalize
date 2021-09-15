@@ -183,9 +183,12 @@ configure either with the following combinations:
 @import "normalize"; /* also, @import "normalize.css" */
 @import "normalize/opinionated"; /* also, @import "normalize.css/opinionated.css", @import "normalize.css/*" */
 @import "sanitize"; /* also, @import "sanitize.css" */
+@import "sanitize/assets"; /* also, @import "sanitize.css/assets.css" */
 @import "sanitize/forms"; /* also, @import "sanitize.css/forms.css" */
+@import "sanitize/reduce-motion"; /* also, @import "sanitize.css/reduce-motion.css" */
+@import "sanitize/system-ui"; /* also, @import "sanitize.css/system-ui.css" */
 @import "sanitize/typography"; /* also, @import "sanitize.css/typography.css" */
-@import "sanitize/page"; /* also, @import "sanitize.css/page.css" */
+@import "sanitize/ui-monospace"; /* also, @import "sanitize.css/ui-monospace.css" */
 @import "sanitize/*"; /* also, @import "sanitize.css/*" (sanitize + all additions) */
 ```
 
