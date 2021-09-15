@@ -7,18 +7,23 @@
   "repository": "csstools/postcss-normalize",
   "homepage": "https://github.com/csstools/postcss-normalize#readme",
   "bugs": "https://github.com/csstools/postcss-normalize/issues",
-  "main": "index.cjs",
-  "module": "index.mjs",
+  "main": "./index.cjs",
+  "module": "./index.mjs",
+  "types": "./index.d.ts",
+  "exports": {
+    "require": "./index.cjs",
+    "import": "./index.mjs",
+    "default": "./index.mjs"
+  },
   "files": [
+    "index.d.ts",
     "index.cjs",
-    "index.cjs.map",
-    "index.mjs",
-    "index.mjs.map"
+    "index.mjs"
   ],
   "scripts": {
     "prepublishOnly": "npm test",
     "build": "rollup --config .rollup.js --silent",
-    "lint": "eslint --cache .gitignore --quiet",
+    "lint": "package-check && eslint --cache .gitignore --quiet",
     "test": "npm run lint && npm run build && npm run tape",
     "tape": "postcss-tape"
   },
@@ -38,6 +43,7 @@
     "@babel/core": "^7.15.5",
     "@babel/plugin-syntax-import-meta": "^7.10.4",
     "@babel/preset-env": "^7.15.6",
+    "@skypack/package-check": "^0.2.2",
     "browserslist": "^4.16.5",
     "eslint": "^7.32.0",
     "postcss": "^8.2.13",
