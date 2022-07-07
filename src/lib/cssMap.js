@@ -1,12 +1,9 @@
 import { create } from './util'
-import Module from 'module'
+import { createRequire}  from 'node:module'
 import path from 'path'
-import { URL } from 'url'
 
-// get esm-compatible script metadata
-const currentURL = import.meta.url
-const currentFilename = new URL(currentURL).pathname
-const currentDirname = path.dirname(currentFilename)
+// create package path resolver in an esm-compatible fashion
+const {resolve: requireResolve} = createRequire(import.meta.url) 
 
 // get resolved filenames for normalize.css
 const normalizeCSS = resolve('@csstools/normalize.css')
@@ -54,9 +51,5 @@ export const resolvedFilenamesById = create({
 
 // get the resolved filename of a package/module
 function resolve (id) {
-	return resolve[id] = resolve[id] || Module._resolveFilename(id, {
-		id: currentFilename,
-		filename: currentFilename,
-		paths: Module._nodeModulePaths(currentDirname)
-	})
+	return resolve[id] = resolve[id] || requireResolve(id)
 }
