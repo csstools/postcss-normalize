@@ -46,7 +46,7 @@
     "@skypack/package-check": "^0.2.2",
     "browserslist": "^4.16.5",
     "eslint": "^7.32.0",
-    "postcss": "^8.2.13",
+    "postcss": "^8.4.31",
     "postcss-import": "^14.0.2",
     "postcss-tape": "^6.0.1",
     "pre-commit": "^1.2.2",
