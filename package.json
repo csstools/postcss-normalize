@@ -13,7 +13,8 @@
   "exports": {
     "require": "./index.cjs",
     "import": "./index.mjs",
-    "default": "./index.mjs"
+    "default": "./index.mjs",
+    "types": "./index.d.ts"
   },
   "files": [
     "index.d.ts",
