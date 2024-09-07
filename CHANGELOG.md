@@ -1,5 +1,9 @@
 # Changes to PostCSS Normalize
 
+### 11.0.0
+
+- Cleanup build dependencies
+
 ### 10.0.1 (September 15, 2021)
 
 - Added: `sanitize.css` to support 13+ (major).
