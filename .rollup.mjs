@@ -1,5 +1,3 @@
-import babel from 'rollup-plugin-babel'
-
 export default {
 	input: 'src/index.js',
 	output: [
@@ -8,11 +6,6 @@ export default {
 	],
 	plugins: [
 		patchBabelPluginSyntaxImportMeta(),
-		babel({
-			presets: [
-				['@babel/env', { modules: false, targets: { node: 8 } }]
-			]
-		})
 	]
 }
 
