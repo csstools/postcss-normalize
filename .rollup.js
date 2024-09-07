@@ -16,7 +16,7 @@ export default {
 	]
 }
 
-function patchBabelPluginSyntaxImportMeta () {
+function patchBabelPluginSyntaxImportMeta() {
 	return {
 		name: 'patch-babel-plugin-syntax-import-meta',
 		renderChunk (code, chunk, options) {

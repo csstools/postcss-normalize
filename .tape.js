@@ -1,29 +1,63 @@
+const fixed_browserslist = [
+	"IE 10",
+	"ie_mob 10",
+	"Safari 7",
+	"iOS 7",
+	"Chrome 60",
+	"ChromeAndroid 60",
+	"Firefox 60",
+	"FirefoxAndroid 60",
+	"Edge 16",
+	"> 0.01%"
+]
+
 module.exports = {
 	/* Test Basic Usage */
 	'basic-normalize': {
-		message: 'supports @import-normalize usage'
+		message: 'supports @import-normalize usage',
+		options: {
+			browsers: fixed_browserslist
+		}
 	},
 	'basic-sanitize': {
-		message: 'supports @import-sanitize usage'
+		message: 'supports @import-sanitize usage',
+		options: {
+			browsers: fixed_browserslist
+		}
 	},
 
 	/* Test @import Usage */
 	'import-normalize': {
 		message: 'supports @import "normalize" usage',
+		options: {
+			browsers: fixed_browserslist
+		},
 		expect: "normalize.expect.css"
 	},
 	'import-normalize-opinionated': {
-		message: 'supports @import "normalize/opinionated" usage'
+		message: 'supports @import "normalize/opinionated" usage',
+		options: {
+			browsers: fixed_browserslist
+		}
 	},
 	'import-sanitize': {
 		message: 'supports @import "sanitize" usage',
+		options: {
+			browsers: fixed_browserslist
+		},
 		expect: "sanitize.expect.css"
 	},
 	'import-sanitize-forms': {
-		message: 'supports @import "sanitize/forms" usage'
+		message: 'supports @import "sanitize/forms" usage',
+		options: {
+			browsers: fixed_browserslist
+		}
 	},
 	'import-sanitize-all': {
-		message: 'supports @import "sanitize/*" + (forms + page + typography) usage'
+		message: 'supports @import "sanitize/*" + (forms + page + typography) usage',
+		options: {
+			browsers: fixed_browserslist
+		}
 	},
 
 	/* Test { browsers } Usage */
@@ -38,30 +72,37 @@ module.exports = {
 	'force-normalize': {
 		message: 'supports { forceImport: true }',
 		options: {
-			forceImport: true
+			forceImport: true,
+			browsers: fixed_browserslist
 		}
 	},
 	'force-sanitize': {
 		message: 'supports { forceImport: "sanitize" }',
 		options: {
-			forceImport: 'sanitize'
+			forceImport: 'sanitize',
+			browsers: fixed_browserslist
 		}
 	},
 	'force-sanitize-all': {
 		message: 'supports { forceImport: "sanitize/*" }',
 		options: {
-			forceImport: 'sanitize/*'
+			forceImport: 'sanitize/*',
+			browsers: fixed_browserslist
 		}
 	},
 
 	/* Test { allowDuplicates } Usage */
 	'duplicates': {
-		message: 'supports preventing duplicates'
+		message: 'supports preventing duplicates',
+		options: {
+			browsers: fixed_browserslist
+		}
 	},
 	'duplicates:allow': {
 		message: 'supports allowing duplicates { allowDuplicates: true }',
 		options: {
-			allowDuplicates: true
+			allowDuplicates: true,
+			browsers: fixed_browserslist
 		}
 	},
 
@@ -69,13 +110,12 @@ module.exports = {
 	'postcss-import': {
 		message: 'supports PostCSS Import Usage',
 		source: 'import-normalize.css',
-		expect: 'import-normalize.expect.css',
 		plugin: (() => {
 			const postcss = require('postcss')
 			const postcssImport = require('postcss-import')
 			const postcssNormalize = require('.')
 
-			const plugin = postcss([ postcssImport(postcssNormalize().postcssImport()) ])
+			const plugin = postcss([postcssImport(postcssNormalize({ browsers: fixed_browserslist }).postcssImport()) ])
 
 			return plugin
 		})()
