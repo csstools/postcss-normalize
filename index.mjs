@@ -1,25 +1,22 @@
 import postcssBrowserComments from 'postcss-browser-comments';
-import Module from 'module';
-import path from 'path';
-import { URL } from 'url';
+import path from 'node:path';
+import { createRequire } from 'node:module';
+import path$1 from 'path';
 import fs from 'fs';
 import postcss from 'postcss';
 
 const assign = (...objects) => Object.assign(...objects);
 const create = (...objects) => assign(Object.create(null), ...objects);
 
-// get esm-compatible script metadata
-const currentURL = import.meta.url;
-const currentFilename = new URL(currentURL).pathname;
-const currentDirname = path.dirname(currentFilename);
+const require = createRequire(import.meta.url);
 
 // get resolved filenames for normalize.css
-const normalizeCSS = resolve('@csstools/normalize.css');
+const normalizeCSS = require.resolve('@csstools/normalize.css');
 const normalizeDir = path.dirname(normalizeCSS);
 const normalizeOpinionatedCSS = path.join(normalizeDir, 'opinionated.css');
 
 // get resolved filenames for sanitize.css
-const sanitizeCSS = resolve('sanitize.css');
+const sanitizeCSS = require.resolve('sanitize.css');
 const sanitizeDir = path.dirname(sanitizeCSS);
 const sanitizeAssetsCSS = path.join(sanitizeDir, 'assets.css');
 const sanitizeFormsCSS = path.join(sanitizeDir, 'forms.css');
@@ -57,19 +54,10 @@ const resolvedFilenamesById = create({
 	'sanitize/*': [sanitizeCSS, sanitizeFormsCSS],
 });
 
-// get the resolved filename of a package/module
-function resolve (id) {
-	return resolve[id] = resolve[id] || Module._resolveFilename(id, {
-		id: currentFilename,
-		filename: currentFilename,
-		paths: Module._nodeModulePaths(currentDirname)
-	})
-}
-
 const cache$1 = create();
 
 async function readFile (filename) {
-	filename = path.resolve(filename);
+	filename = path$1.resolve(filename);
 
 	cache$1[filename] = cache$1[filename] || create();
 

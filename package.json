@@ -1,6 +1,6 @@
 {
   "name": "postcss-normalize",
-  "version": "11.0.0",
+  "version": "12.0.0",
   "description": "Use the parts of normalize.css or sanitize.css you need from your browserslist",
   "author": "Jonathan Neal <jonathantneal@hotmail.com>",
   "license": "CC0-1.0",
@@ -9,14 +9,12 @@
   "bugs": "https://github.com/csstools/postcss-normalize/issues",
   "main": "./index.cjs",
   "module": "./index.mjs",
-  "types": "./index.d.ts",
   "exports": {
     "require": "./index.cjs",
     "import": "./index.mjs",
     "default": "./index.mjs"
   },
   "files": [
-    "index.d.ts",
     "index.cjs",
     "index.mjs"
   ],
@@ -27,7 +25,7 @@
     "tape": "postcss-tape"
   },
   "engines": {
-    "node": ">= 12"
+    "node": ">= 18"
   },
   "peerDependencies": {
     "browserslist": ">= 4",

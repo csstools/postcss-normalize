@@ -1,7 +1,7 @@
 var postcssBrowserComments = require('postcss-browser-comments');
-var Module = require('module');
-var path = require('path');
-
+var path = require('node:path');
+var node_module = require('node:module');
+var path$1 = require('path');
 var fs = require('fs');
 var postcss = require('postcss');
 
@@ -9,17 +9,15 @@ var _documentCurrentScript = typeof document !== 'undefined' ? document.currentS
 const assign = (...objects) => Object.assign(...objects);
 const create = (...objects) => assign(Object.create(null), ...objects);
 
-// get esm-compatible script metadata
-const currentFilename = __filename;
-const currentDirname = path.dirname(currentFilename);
+const require$1 = node_module.createRequire((typeof document === 'undefined' ? require('u' + 'rl').pathToFileURL(__filename).href : (_documentCurrentScript && _documentCurrentScript.src || new URL('index.cjs', document.baseURI).href)));
 
 // get resolved filenames for normalize.css
-const normalizeCSS = resolve('@csstools/normalize.css');
+const normalizeCSS = require$1.resolve('@csstools/normalize.css');
 const normalizeDir = path.dirname(normalizeCSS);
 const normalizeOpinionatedCSS = path.join(normalizeDir, 'opinionated.css');
 
 // get resolved filenames for sanitize.css
-const sanitizeCSS = resolve('sanitize.css');
+const sanitizeCSS = require$1.resolve('sanitize.css');
 const sanitizeDir = path.dirname(sanitizeCSS);
 const sanitizeAssetsCSS = path.join(sanitizeDir, 'assets.css');
 const sanitizeFormsCSS = path.join(sanitizeDir, 'forms.css');
@@ -57,19 +55,10 @@ const resolvedFilenamesById = create({
 	'sanitize/*': [sanitizeCSS, sanitizeFormsCSS],
 });
 
-// get the resolved filename of a package/module
-function resolve (id) {
-	return resolve[id] = resolve[id] || Module._resolveFilename(id, {
-		id: currentFilename,
-		filename: currentFilename,
-		paths: Module._nodeModulePaths(currentDirname)
-	})
-}
-
 const cache$1 = create();
 
 async function readFile (filename) {
-	filename = path.resolve(filename);
+	filename = path$1.resolve(filename);
 
 	cache$1[filename] = cache$1[filename] || create();
 

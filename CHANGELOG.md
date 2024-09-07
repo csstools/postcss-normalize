@@ -1,5 +1,11 @@
 # Changes to PostCSS Normalize
 
+### 12.0.0
+
+- Remove TypeScript types. This package is a dual published cjs and esm and it isn't worth it, all info is in `README.md`.
+- Set minimum node version to 18
+- Fix resolution of `@csstools/normalize.css` path when using ESM
+
 ### 11.0.0
 
 - Cleanup build dependencies

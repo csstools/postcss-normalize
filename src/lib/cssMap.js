@@ -1,20 +1,17 @@
 import { create } from './util'
-import Module from 'module'
-import path from 'path'
-import { URL } from 'url'
+import path from 'node:path'
 
 // get esm-compatible script metadata
-const currentURL = import.meta.url
-const currentFilename = new URL(currentURL).pathname
-const currentDirname = path.dirname(currentFilename)
+import { createRequire } from 'node:module'
+const require = createRequire(import.meta.url)
 
 // get resolved filenames for normalize.css
-const normalizeCSS = resolve('@csstools/normalize.css')
+const normalizeCSS = require.resolve('@csstools/normalize.css')
 const normalizeDir = path.dirname(normalizeCSS)
 const normalizeOpinionatedCSS = path.join(normalizeDir, 'opinionated.css')
 
 // get resolved filenames for sanitize.css
-const sanitizeCSS = resolve('sanitize.css')
+const sanitizeCSS = require.resolve('sanitize.css')
 const sanitizeDir = path.dirname(sanitizeCSS)
 const sanitizeAssetsCSS = path.join(sanitizeDir, 'assets.css')
 const sanitizeFormsCSS = path.join(sanitizeDir, 'forms.css')
@@ -51,12 +48,3 @@ export const resolvedFilenamesById = create({
 	'sanitize/ui-monospace': [sanitizeCSS, sanitizeUiMonospace],
 	'sanitize/*': [sanitizeCSS, sanitizeFormsCSS],
 })
-
-// get the resolved filename of a package/module
-function resolve (id) {
-	return resolve[id] = resolve[id] || Module._resolveFilename(id, {
-		id: currentFilename,
-		filename: currentFilename,
-		paths: Module._nodeModulePaths(currentDirname)
-	})
-}
