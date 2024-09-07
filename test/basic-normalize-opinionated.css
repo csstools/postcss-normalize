@@ -1,0 +1,5 @@
+@import-normalize "normalize/opinionated.css";
+
+body {
+	font-family: sans-serif;
+}

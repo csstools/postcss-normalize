@@ -128,7 +128,7 @@ with `@import` transforms.
 ```
 
 ```pcss
-@import-normalize "opinionated.css";
+@import-normalize "normalize/opinionated.css";
 ```
 
 ```pcss

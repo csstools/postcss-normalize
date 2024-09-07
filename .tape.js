@@ -19,6 +19,12 @@ module.exports = {
 			browsers: fixed_browserslist
 		}
 	},
+	'basic-normalize-opinionated': {
+		message: 'supports @import-normalize "opinionated.css" usage',
+		options: {
+			browsers: fixed_browserslist
+		}
+	},
 	'basic-sanitize': {
 		message: 'supports @import-sanitize usage',
 		options: {
