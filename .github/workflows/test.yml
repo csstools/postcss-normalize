@@ -12,6 +12,12 @@ jobs:
     strategy:
       matrix:
         node: [18, 20, 'lts/*']
+        os: [ubuntu-latest]
+        include:
+        - os: macos-latest
+          node: 'lts/*'
+        - os: windows-latest
+          node: 'lts/*'
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4

@@ -23,7 +23,7 @@
   "scripts": {
     "prepublishOnly": "npm test",
     "build": "rollup --config .rollup.mjs --silent",
-    "test": "npm run build && npm run tape",
+    "test": "npm run build && npm run tape && node .test.cjs && node .test.mjs",
     "tape": "postcss-tape"
   },
   "engines": {
