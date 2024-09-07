@@ -1,6 +1,6 @@
 {
   "name": "postcss-normalize",
-  "version": "12.0.0",
+  "version": "13.0.0",
   "description": "Use the parts of normalize.css or sanitize.css you need from your browserslist",
   "author": "Jonathan Neal <jonathantneal@hotmail.com>",
   "license": "CC0-1.0",
@@ -32,9 +32,9 @@
     "postcss": ">= 8"
   },
   "dependencies": {
-    "@csstools/normalize.css": "*",
+    "@csstools/normalize.css": "12.1.1",
     "postcss-browser-comments": "^4",
-    "sanitize.css": "*"
+    "sanitize.css": "13.0.0"
   },
   "devDependencies": {
     "browserslist": "^4.16.5",

@@ -1,5 +1,9 @@
 # Changes to PostCSS Normalize
 
+### 13.0.0
+
+- Pin versions of `@csstools/normalize.css` and `sanitize.css`
+
 ### 12.0.0
 
 - Remove TypeScript types. This package is a dual published cjs and esm and it isn't worth it, all info is in `README.md`.
