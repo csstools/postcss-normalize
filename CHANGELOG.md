@@ -1,5 +1,9 @@
 # Changes to PostCSS Normalize
 
+### 13.0.1
+
+- Maintenance release after updating dependencies
+
 ### 13.0.0
 
 - Pin versions of `@csstools/normalize.css` and `sanitize.css`

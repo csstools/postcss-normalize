@@ -1,3 +1,8 @@
+import { postcssTape } from '@csstools/postcss-tape';
+import plugin from 'postcss-normalize';
+import postcss from 'postcss';
+import postcssImport from 'postcss-import';
+
 const fixed_browserslist = [
 	"IE 10",
 	"ie_mob 10",
@@ -11,7 +16,7 @@ const fixed_browserslist = [
 	"> 0.01%"
 ]
 
-module.exports = {
+postcssTape(plugin)({
 	/* Test Basic Usage */
 	'basic-normalize': {
 		message: 'supports @import-normalize usage',
@@ -116,14 +121,8 @@ module.exports = {
 	'postcss-import': {
 		message: 'supports PostCSS Import Usage',
 		source: 'import-normalize.css',
-		plugin: (() => {
-			const postcss = require('postcss')
-			const postcssImport = require('postcss-import')
-			const postcssNormalize = require('.')
-
-			const plugin = postcss([postcssImport(postcssNormalize({ browsers: fixed_browserslist }).postcssImport()) ])
-
-			return plugin
-		})()
+		plugins: [(() => {
+			return postcss([postcssImport(plugin({ browsers: fixed_browserslist }).postcssImport()) ])
+		})()]
 	}
-}
+})

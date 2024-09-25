@@ -9,7 +9,7 @@ var _documentCurrentScript = typeof document !== 'undefined' ? document.currentS
 const assign = (...objects) => Object.assign(...objects);
 const create = (...objects) => assign(Object.create(null), ...objects);
 
-const require$1 = node_module.createRequire((typeof document === 'undefined' ? require('u' + 'rl').pathToFileURL(__filename).href : (_documentCurrentScript && _documentCurrentScript.src || new URL('index.cjs', document.baseURI).href)));
+const require$1 = node_module.createRequire((typeof document === 'undefined' ? require('u' + 'rl').pathToFileURL(__filename).href : (_documentCurrentScript && _documentCurrentScript.tagName.toUpperCase() === 'SCRIPT' && _documentCurrentScript.src || new URL('index.cjs', document.baseURI).href)));
 
 // get resolved filenames for normalize.css
 const normalizeCSS = require$1.resolve('@csstools/normalize.css');
