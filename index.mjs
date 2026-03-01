@@ -8,15 +8,15 @@ import postcss from 'postcss';
 const assign = (...objects) => Object.assign(...objects);
 const create = (...objects) => assign(Object.create(null), ...objects);
 
-const require = createRequire(import.meta.url);
+const require$1 = createRequire(import.meta.url);
 
 // get resolved filenames for normalize.css
-const normalizeCSS = require.resolve('@csstools/normalize.css');
+const normalizeCSS = require$1.resolve('@csstools/normalize.css');
 const normalizeDir = path.dirname(normalizeCSS);
 const normalizeOpinionatedCSS = path.join(normalizeDir, 'opinionated.css');
 
 // get resolved filenames for sanitize.css
-const sanitizeCSS = require.resolve('sanitize.css');
+const sanitizeCSS = require$1.resolve('sanitize.css');
 const sanitizeDir = path.dirname(sanitizeCSS);
 const sanitizeAssetsCSS = path.join(sanitizeDir, 'assets.css');
 const sanitizeFormsCSS = path.join(sanitizeDir, 'forms.css');
